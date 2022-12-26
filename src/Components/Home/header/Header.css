@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #941C2F;
+}
+
+.containerHeader {
+    width: 100vw;
+    height: 15vh;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerLeft img{
+    margin-left: 20px;
+    width: 80px;
+}
+
+.containerRight img {
+    width: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer; 
+}
