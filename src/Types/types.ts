@@ -18,8 +18,8 @@ export type ChildrenType = {
 export type DataType = {
     id: number
     name: string
-    src: string
-    valor: number
+    src: any 
+    valor: string
 }
 
 export type ContextType = {
