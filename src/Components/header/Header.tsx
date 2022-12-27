@@ -1,8 +1,9 @@
 import './Header.css'
-import logo from '../../../imgs/logo.svg'
-import user from '../../../imgs/user.svg'
-import carrinho from '../../../imgs/carrinho.svg'
-import coracao from '../../../imgs/coracao.svg'
+import logo from '../../imgs/logo.svg'
+import user from '../../imgs/user.svg'
+import carrinho from '../../imgs/carrinho.svg'
+import coracao from '../../imgs/coracao.svg'
+import '../GlobalStyle/index.css'
 
 const Header = () => {
   return (

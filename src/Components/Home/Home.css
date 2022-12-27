@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #C1CFDA;
+    background-color: var(--body-color);
 }
 
 .bodyContainer {

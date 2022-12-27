@@ -5,16 +5,19 @@ import { data } from "../Data/data";
 ////////////////////////  REDUCER  ////////////////////////////////
 
 export const ShopReducerInitialState: ShopReducerInitialStateType = {
+    cartOpen: false,
     qtdItensCarrinho: 0,
     valorTotal: 0,
-    array: data
+    array: data,
+    pos: 0
 }
 
 export function reducerShop(state: ShopReducerInitialStateType, action: ActionType) {
     switch (action.type) {
-        case 'OPEN_CADASTRO':
-            return {...state, isOpenModalCadastro: action.payload.modalCadastro}
-            break;      
+        case 'OPEN_CART':
+            return {...state, cartOpen: action.payload.cartOpen, pos: action.payload.pos}
+            break;
+              
     }
     return state
 }

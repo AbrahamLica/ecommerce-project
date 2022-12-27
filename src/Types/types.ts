@@ -1,7 +1,9 @@
 export type ShopReducerInitialStateType = {
+    cartOpen: boolean
     qtdItensCarrinho: number
     valorTotal: number
     array: DataType[]
+    pos: number
 }
 
 export type ActionType = {

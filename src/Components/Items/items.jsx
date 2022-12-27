@@ -1,17 +1,32 @@
-import React from "react";
-import eye from "../../../imgs/eye.svg";
-import cart from "../../../imgs/cart.svg";
-import { useContext } from "react";
-import { Context } from "../../../Context/Context";
+import eye from "../../imgs/eye.svg";
+import cart from "../../imgs/cart.svg";
 import './items.css'
+import '../GlobalStyle/index.css'
 
-const Items = () => {
+import { useContext } from "react";
+import { Context } from "../../Context/Context";
+
+
+ const Items = () => {
+
   const { state, dispatch } = useContext(Context);
 
-  return (
+  function abrirCompra(index) {
+    dispatch({
+      type: 'OPEN_CART',
+      payload: {
+        cartOpen: true,
+        pos: index
+      }
+    })
+  }
+
+  return (    
+
     <div className="itemsContainer">
       {state.shop.array.map((item, index) => (
-        <div className="itemContainer">
+        <div className="itemContainer" key={index}>
+
           <img src={require(`${item.src}`)} alt="" className="thumb" />
 
           <div className="informationsContainer">
@@ -25,14 +40,16 @@ const Items = () => {
               <p>Detalhes</p>
             </div>
 
-            <div className="addCarrinho">
+            <div className="addCarrinho" onClick={() => abrirCompra(index)}>
               <img src={cart} alt="" />
               <p>Add. ao Carrinho</p>
             </div>
           </div>
+
         </div>
       ))}
     </div>
+    
   );
 };
 
