@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.htmlContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #C1CFDA;
+}
+
+.bodyContainer {
+    background-color: white;
+    width: 80%;
+    height: 100vh;
+}
+
+.titleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    font-size: 1.5rem;
+}
+
+.itemsContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
