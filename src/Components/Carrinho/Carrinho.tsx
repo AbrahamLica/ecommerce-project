@@ -9,36 +9,28 @@ const Carrinho = () => {
   const [valor, setValor] = useState(state.shop.array[state.shop.pos].valor);
   const [qtd, setQtd] = useState(1)
   const [teste, setTeste] = useState(valor)
+  const [valorFinal, setValorFinal] = useState()
   
 
   // function inputSetName(e: ChangeEvent<HTMLInputElement>) {
   //   setName(e.target.value)
   // }
 
-  // useEffect(() => {
-  //   removeQtd()
-  // }, [])
+  useEffect(() => {
+    let resultado = qtd * valor
+    let newResultado: any = resultado.toFixed(2)
+    setValorFinal(newResultado)
+    setTeste(qtd * valor)
+  }, [qtd, valor])
 
-  // function initialize() {
-  //   setTeste(valor * qtd)
-  // }
-
-  function addQtd() {
+   function addQtd() {
     setQtd(qtd + 1)
   }
 
   function removeQtd() {
-    // if (qtd > 1) {
-    //   setQtd(qtd-1)
-    //   setTeste(valor * qtd )
-    // } else {
-
-    // }
-
-    // setQtd(qtd-1) 
-    // setTeste(valor * qtd )
-    setTeste(valor * qtd)
-      
+    if (qtd > 1) {
+      setQtd(qtd - 1)
+    }  
   }
 
   function testeee() {
@@ -52,7 +44,7 @@ const Carrinho = () => {
       <div className="modalCarrinho">
         <img src={require(`${src}`)} alt="" className="imgItem" />
         <p className="name">{name}</p>
-        <p className="valor">Preço: {teste}</p>
+        <p className="valor">Preço: {valorFinal}</p>
         <div className="containerQt">
           <button onClick={removeQtd}>-</button>
           <p>{qtd}</p>
