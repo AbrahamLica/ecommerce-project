@@ -21,7 +21,7 @@ export type DataType = {
     id: number
     name: string
     src: any 
-    valor: string
+    valor: number
 }
 
 export type ContextType = {

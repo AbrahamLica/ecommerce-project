@@ -13,10 +13,53 @@
 .modalCarrinho {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
     background-color: white;
+    padding: 30px;
     width: 40vw;
     z-index: 10;
     border-radius: 20px;
+}
+
+.name {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.valor {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.containerQt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerQt button {
+    width: 30px;
+    font-size: 20px;
+    margin: 10px;
+}
+
+.imgItem {
+    max-width: 300px;
+}
+
+.containerButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.containerButtons button {
+    font-size: 20px;
+    padding: 5px;
+    margin-left: 10px;
 }
