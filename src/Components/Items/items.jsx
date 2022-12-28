@@ -13,9 +13,9 @@ import { Context } from "../../Context/Context";
 
   function abrirCompra(index) {
     dispatch({
-      type: 'OPEN_CART',
+      type: 'OPEN_MODAL',
       payload: {
-        cartOpen: true,
+        modalOpen: true,
         pos: index
       }
     })

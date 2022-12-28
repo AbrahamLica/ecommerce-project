@@ -10,11 +10,7 @@ const Carrinho = () => {
   const [qtd, setQtd] = useState(1)
   const [teste, setTeste] = useState(valor)
   const [valorFinal, setValorFinal] = useState()
-  
 
-  // function inputSetName(e: ChangeEvent<HTMLInputElement>) {
-  //   setName(e.target.value)
-  // }
 
   useEffect(() => {
     let resultado = qtd * valor
@@ -33,10 +29,30 @@ const Carrinho = () => {
     }  
   }
 
-  function testeee() {
-    console.log('valor qtd:' + qtd)
-    console.log('resultado de ' + qtd + ' * ' + valor + ' = ' + teste)
+  function fechaModal() {
+    dispatch({
+      type: 'CLOSE_MODAL',
+      payload: {
+        modalOpen: false
+      }
+    })
   }
+
+  function adicionarAoCarrinho() {
+    dispatch({
+      type: 'ADD_ITEM_TO_CART',
+      payload: {
+        itemName: name,
+        qtdItem: qtd,
+        valorTotal: valorFinal
+      }
+    })
+  }
+
+  function consoleee() {
+    console.log(state.cart)
+  }
+
 
   return (
     <div className="containerModalCarrinho">
@@ -44,7 +60,7 @@ const Carrinho = () => {
       <div className="modalCarrinho">
         <img src={require(`${src}`)} alt="" className="imgItem" />
         <p className="name">{name}</p>
-        <p className="valor">Preço: {valorFinal}</p>
+        <p className="valor">Preço: R$ {valorFinal}</p>
         <div className="containerQt">
           <button onClick={removeQtd}>-</button>
           <p>{qtd}</p>
@@ -52,8 +68,9 @@ const Carrinho = () => {
         </div>
 
         <div className="containerButtons">
-          <button onClick={testeee}>Adicionar ao carrinho</button>
-          <button>Cancelar</button>
+          <button onClick={adicionarAoCarrinho}>Adicionar ao carrinho</button>
+          <button onClick={fechaModal}>Cancelar</button>
+          <button onClick={consoleee}>teste</button>
         </div>
 
       </div>

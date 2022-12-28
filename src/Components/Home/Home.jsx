@@ -22,7 +22,7 @@ const Home = () => {
 
         <Items></Items>
 
-        {state.shop.cartOpen ? <Carrinho></Carrinho> : null}
+        {state.shop.modalOpen ? <Carrinho></Carrinho> : null}
 
       </div>
     </div>
