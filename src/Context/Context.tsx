@@ -6,6 +6,7 @@ import { data } from "../Data/data";
 
 export const ShopReducerInitialState: ShopReducerInitialStateType = {
     modalOpen: false,
+    openCart: false,
     array: data,
     pos: 0
 }
@@ -19,6 +20,14 @@ export function reducerShop(state: ShopReducerInitialStateType, action: ActionTy
         case 'CLOSE_MODAL':
             return {...state, modalOpen: action.payload.modalOpen}
             break;
+
+        case 'OPEN_CART':
+            return {...state, openCart: action.payload.openCart}
+            break;
+
+        case 'CLOSE_CART':
+            return {...state, openCart: action.payload.openCart}
+            break;
               
     }
     return state
@@ -26,11 +35,9 @@ export function reducerShop(state: ShopReducerInitialStateType, action: ActionTy
 
 ////////////////////////  REDUCER CART  ////////////////////////////////
 
-export const ItemsCartReducerInitialState: ItemsCartReducerInitialStateType[] = [{
-    itemName: '',
-    qtdItem: 0,
-    valorTotal: 0
-}]
+export const ItemsCartReducerInitialState: ItemsCartReducerInitialStateType[] = [
+    
+]
     
 
 
@@ -42,6 +49,7 @@ export function reducerCart(state: ItemsCartReducerInitialStateType[], action: A
                 itemName: action.payload.itemName,
                 qtdItem: action.payload.qtdItem,
                 valorTotal: action.payload.valorTotal,
+                src: action.payload.src
             })
             return newState
             break;

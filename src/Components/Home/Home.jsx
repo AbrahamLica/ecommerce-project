@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Context } from "../../Context/Context";
 import Items from "../Items/items";
 import '../GlobalStyle/index.css'
+import ModalCompra from "../ModalCompra/ModalCompra";
 import Carrinho from "../Carrinho/Carrinho";
 
 const Home = () => {
@@ -11,20 +12,27 @@ const Home = () => {
   const { state, dispatch } = useContext(Context);
 
   return (
-    <div className="htmlContainer">
+    <div className="body">
+      <div className="htmlContainer">
 
-      <Header></Header>
+        <Header></Header>
 
-      <div className="bodyContainer">
-        <div className="titleContainer">
-          <h1>Os melhores itens Geek você encontra aqui!</h1>
+        <div className="bodyContainer">
+          <div className="titleContainer">
+            <h1>Os melhores itens Geek você encontra aqui!</h1>
+          </div>
+
+          <Items></Items>
+
+          {state.shop.modalOpen ? <ModalCompra></ModalCompra> : null}
+
         </div>
 
-        <Items></Items>
-
-        {state.shop.modalOpen ? <Carrinho></Carrinho> : null}
-
+        
       </div>
+
+      {state.shop.openCart ? <Carrinho></Carrinho> : null}
+
     </div>
   );
 };

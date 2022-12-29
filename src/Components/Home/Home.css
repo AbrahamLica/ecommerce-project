@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.body {
+    display: flex;
+}
+
 .htmlContainer {
     width: 100%;
     display: flex;

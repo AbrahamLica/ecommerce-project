@@ -1,65 +1,79 @@
-.containerModalCarrinho {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.322);
-}
-
-.modalCarrinho {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: white;
-    padding: 30px;
+.containerCarrinho {
     width: 40vw;
-    z-index: 10;
-    border-radius: 20px;
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.name {
-    font-size: 30px;
-    font-weight: bold;
+
+.itemCarrinho {
+    display: flex;
+    padding: 10px;
+    width: 100%;
     margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 5px solid black;
+}
+
+.imgItemCarrinho {
+    height: 100px;
+    max-width: 80px;
+}
+
+.informationsItemCarrinho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+.nameItemCarrinho {
+    font-weight: bold;
+    font-size: 19px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.containerQtdValorItemCarrinho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.qtdItemCarrinho {
     text-align: center;
 }
 
-.valor {
-    font-size: 25px;
+.containerValores {
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
+    width: 100%;
 }
 
-.containerQt {
+.total {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    width: 100%;
 }
 
-.containerQt button {
-    width: 30px;
-    font-size: 20px;
-    margin: 10px;
+.total h2 {
+    font-size: 30px;
 }
 
-.imgItem {
-    max-width: 300px;
-}
-
-.containerButtons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.containerButtons button {
-    font-size: 20px;
+.btnFinalizar {
+    width: 80%;
+    font-size: 30px;
     padding: 5px;
-    margin-left: 10px;
+    border-radius: 10px;
+    background-color: var(--body-color);
+    border: none;
+    cursor: pointer;
 }

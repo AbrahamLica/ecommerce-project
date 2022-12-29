@@ -1,5 +1,6 @@
 export type ShopReducerInitialStateType = {
     modalOpen: boolean
+    openCart: boolean
     array: DataType[]
     pos: number
 }
@@ -35,7 +36,8 @@ export type InitialStateContextType = {
 //////////////////////////////////////////////////////
 
 export type ItemsCartReducerInitialStateType = {
-    itemName: string
-    qtdItem: number
-    valorTotal: number
+    itemName?: string
+    qtdItem?: number
+    valorTotal?: number
+    src?: string
 }

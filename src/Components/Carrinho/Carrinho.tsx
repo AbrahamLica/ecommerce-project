@@ -1,79 +1,67 @@
 import "./Carrinho.css";
-import { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context/Context";
+import { useContext, useEffect, useState } from "react";
 
 const Carrinho = () => {
   const { state, dispatch } = useContext(Context);
-  const [name, setName] = useState(state.shop.array[state.shop.pos].name);
-  const [src, setSrc] = useState(state.shop.array[state.shop.pos].src);
-  const [valor, setValor] = useState(state.shop.array[state.shop.pos].valor);
-  const [qtd, setQtd] = useState(1)
-  const [teste, setTeste] = useState(valor)
-  const [valorFinal, setValorFinal] = useState()
-
+  const [valorTotal, setValorTotal] = useState<any>();
+  const [valorTotalFormatado, setvalorTotalFormatado] = useState<any>();
 
   useEffect(() => {
-    let resultado = qtd * valor
-    let newResultado: any = resultado.toFixed(2)
-    setValorFinal(newResultado)
-    setTeste(qtd * valor)
-  }, [qtd, valor])
+    var soma: any = 0;
+    for (let i = 0; i < state.cart.length; i++) {
+      soma += state.cart[i].valorTotal;
+    }
+    setValorTotal(soma.toFixed(2));
+    // setvalorTotalFormatado()
+  }, [valorTotal, state]);
 
-   function addQtd() {
-    setQtd(qtd + 1)
+  function calcular() {
+    var soma: any = 0;
+    for (let i = 0; i < state.cart.length; i++) {
+      soma += state.cart[i].valorTotal;
+    }
+    setValorTotal(soma);
   }
 
-  function removeQtd() {
-    if (qtd > 1) {
-      setQtd(qtd - 1)
-    }  
-  }
-
-  function fechaModal() {
+  function closeCart() {
     dispatch({
-      type: 'CLOSE_MODAL',
+      type: "CLOSE_CART",
       payload: {
-        modalOpen: false
-      }
-    })
+        openCart: false,
+      },
+    });
   }
 
-  function adicionarAoCarrinho() {
-    dispatch({
-      type: 'ADD_ITEM_TO_CART',
-      payload: {
-        itemName: name,
-        qtdItem: qtd,
-        valorTotal: valorFinal
-      }
-    })
+  function teste() {
+    console.log(state.cart);
   }
-
-  function consoleee() {
-    console.log(state.cart)
-  }
-
 
   return (
-    <div className="containerModalCarrinho">
+    <div className="containerCarrinho">
+      <h1>Carrinho</h1>
 
-      <div className="modalCarrinho">
-        <img src={require(`${src}`)} alt="" className="imgItem" />
-        <p className="name">{name}</p>
-        <p className="valor">Preço: R$ {valorFinal}</p>
-        <div className="containerQt">
-          <button onClick={removeQtd}>-</button>
-          <p>{qtd}</p>
-          <button onClick={addQtd}>+</button>
+      {state.cart.map((item, index) => (
+        <div className="itemCarrinho">
+          <div className="informationsItemCarrinho">
+            <img src={require(`${item.src}`)} alt="" className="imgItemCarrinho" />
+            <div className="containerQtdValorItemCarrinho">
+              <p className="nameItemCarrinho">{item.itemName}</p>
+              <p className="qtdItemCarrinho">Quantidade: {item.qtdItem}</p>
+              <p>Valor: R$ {item.valorTotal} </p>
+            </div>
+          </div>
         </div>
+      ))}
 
-        <div className="containerButtons">
-          <button onClick={adicionarAoCarrinho}>Adicionar ao carrinho</button>
-          <button onClick={fechaModal}>Cancelar</button>
-          <button onClick={consoleee}>teste</button>
+      <div className="containerValores">
+        <div className="total">
+          <h2>Total</h2>
+          <h2>R$ {valorTotal}</h2>
         </div>
-
       </div>
+
+      <button className="btnFinalizar" onClick={closeCart}>Finalizar Compra</button>
 
     </div>
   );
