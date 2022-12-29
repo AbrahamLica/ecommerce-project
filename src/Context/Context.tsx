@@ -53,6 +53,9 @@ export function reducerCart(state: ItemsCartReducerInitialStateType[], action: A
             })
             return newState
             break;
+
+        case 'RESET_CARRINHO':
+            return ItemsCartReducerInitialState
               
     }
     return state

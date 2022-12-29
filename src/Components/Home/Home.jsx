@@ -1,6 +1,6 @@
 import Header from "../header/Header";
 import "./Home.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Context } from "../../Context/Context";
 import Items from "../Items/items";
 import '../GlobalStyle/index.css'

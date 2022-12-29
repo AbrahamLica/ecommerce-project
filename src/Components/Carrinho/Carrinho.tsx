@@ -6,6 +6,7 @@ const Carrinho = () => {
   const { state, dispatch } = useContext(Context);
   const [valorTotal, setValorTotal] = useState<any>();
   const [valorTotalFormatado, setvalorTotalFormatado] = useState<any>();
+  const [testee, setTestee] = useState(false)
 
   useEffect(() => {
     var soma: any = 0;
@@ -13,8 +14,12 @@ const Carrinho = () => {
       soma += state.cart[i].valorTotal;
     }
     setValorTotal(soma.toFixed(2));
-    // setvalorTotalFormatado()
-  }, [valorTotal, state]);
+
+    if (state.shop.openCart == true) {
+      setTestee(true)
+    }
+    
+  }, [valorTotal, state, testee]);
 
   function calcular() {
     var soma: any = 0;
@@ -31,6 +36,14 @@ const Carrinho = () => {
         openCart: false,
       },
     });
+
+    dispatch({
+      type: 'RESET_CARRINHO'
+    })
+
+    alert('Obrigado pela preferência!')
+
+    setTestee(false)
   }
 
   function teste() {
@@ -38,7 +51,7 @@ const Carrinho = () => {
   }
 
   return (
-    <div className="containerCarrinho">
+    <div className={testee ? 'containerCarrinhoAberto': 'containerCarrinhoFechado'}>
       <h1>Carrinho</h1>
 
       {state.cart.map((item, index) => (
@@ -48,7 +61,7 @@ const Carrinho = () => {
             <div className="containerQtdValorItemCarrinho">
               <p className="nameItemCarrinho">{item.itemName}</p>
               <p className="qtdItemCarrinho">Quantidade: {item.qtdItem}</p>
-              <p>Valor: R$ {item.valorTotal} </p>
+              <p className="valorItemCarrinho">Valor: R$ {item.valorTotal} </p>
             </div>
           </div>
         </div>
