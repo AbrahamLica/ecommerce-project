@@ -24,14 +24,16 @@ const Home = () => {
 
           <Items></Items>
 
-          {state.shop.modalOpen ? <ModalCompra></ModalCompra> : null}
+          <ModalCompra></ModalCompra>
+
+          {/* {state.shop.modalOpen ? <ModalCompra></ModalCompra> : null} */}
 
         </div>
 
         
       </div>
 
-      {state.shop.openCart ? <Carrinho></Carrinho> : null}
+      <Carrinho></Carrinho>
 
     </div>
   );

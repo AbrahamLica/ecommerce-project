@@ -17,6 +17,8 @@ const Carrinho = () => {
 
     if (state.shop.openCart == true) {
       setTestee(true)
+    } else if(state.shop.openCart == false) {
+      setTestee(false)
     }
     
   }, [valorTotal, state, testee]);
@@ -51,30 +53,29 @@ const Carrinho = () => {
   }
 
   return (
-    <div className={testee ? 'containerCarrinhoAberto': 'containerCarrinhoFechado'}>
-      <h1>Carrinho</h1>
+    <div className={testee ? 'containerCarrinhoAberto' : 'containerCarrinhoFechado'}>
 
       {state.cart.map((item, index) => (
-        <div className="itemCarrinho">
+        <div className={testee ? 'itemCarrinhoAberto' : 'itemCarrinhoFechado'}>
           <div className="informationsItemCarrinho">
             <img src={require(`${item.src}`)} alt="" className="imgItemCarrinho" />
             <div className="containerQtdValorItemCarrinho">
               <p className="nameItemCarrinho">{item.itemName}</p>
               <p className="qtdItemCarrinho">Quantidade: {item.qtdItem}</p>
-              <p className="valorItemCarrinho">Valor: R$ {item.valorTotal} </p>
+              <p className="valorItemCarrinho">Valor: R$ {item.valorTotal?.toFixed(2)} </p>
             </div>
           </div>
         </div>
       ))}
 
-      <div className="containerValores">
+      <div className={testee ? 'containerValoresAberto' : 'containerValoresFechado'}>
         <div className="total">
           <h2>Total</h2>
           <h2>R$ {valorTotal}</h2>
         </div>
       </div>
 
-      <button className="btnFinalizar" onClick={closeCart}>Finalizar Compra</button>
+      <button className={testee ? 'btnFinalizarAberto' : 'btnFinalizarFechado'} onClick={closeCart}>Finalizar Compra</button>
 
     </div>
   );

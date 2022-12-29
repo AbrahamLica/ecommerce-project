@@ -1,8 +1,9 @@
 import "./ModalCompra.css";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context/Context";
+import ReactModal from 'react-modal'
 
-const Carrinho = () => {
+const ModalCompra = () => {
   const { state, dispatch } = useContext(Context);
   const [name, setName] = useState(state.shop.array[state.shop.pos].name);
   const [src, setSrc] = useState(state.shop.array[state.shop.pos].src);
@@ -12,22 +13,21 @@ const Carrinho = () => {
   const [valorFinal, setValorFinal] = useState<number>()
   const [valorFinalFormatado, setValorFinalFormatado] = useState<any>()
 
-
   useEffect(() => {
-    let resultado:number = qtd * valor
+    let resultado: number = qtd * valor
     setValorFinal(resultado)
     setValorFinalFormatado(valorFinal?.toFixed(2))
     setTeste(qtd * valor)
   }, [qtd, valor, valorFinal, valorFinalFormatado])
 
-   function addQtd() {
+  function addQtd() {
     setQtd(qtd + 1)
   }
 
   function removeQtd() {
     if (qtd > 1) {
       setQtd(qtd - 1)
-    }  
+    }
   }
 
   function fechaModal() {
@@ -60,14 +60,11 @@ const Carrinho = () => {
     fechaModal()
   }
 
-  function consoleee() {
-    console.log(state.cart)
-  }
 
 
   return (
-    <div className="containerModalCarrinho">
 
+    <ReactModal isOpen={state.shop.modalOpen} closeTimeoutMS={300} className='containerModalCarrinhoAberto'>
       <div className="modalCarrinho">
         <img src={require(`${src}`)} alt="" className="imgItem" />
         <p className="name">{name}</p>
@@ -81,13 +78,12 @@ const Carrinho = () => {
         <div className="containerButtons">
           <button onClick={adicionarAoCarrinho}>Adicionar ao carrinho</button>
           <button onClick={fechaModal}>Cancelar</button>
-          <button onClick={consoleee}>teste</button>
         </div>
 
       </div>
-
-    </div>
+    </ReactModal>
   );
+
 };
 
-export default Carrinho;
+export default ModalCompra;

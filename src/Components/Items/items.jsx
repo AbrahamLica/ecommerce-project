@@ -13,7 +13,7 @@ import { Context } from "../../Context/Context";
 
   function abrirCompra(index) {
     dispatch({
-      type: 'OPEN_MODAL',
+      type: 'OPEN_MODAL', 
       payload: {
         modalOpen: true,
         pos: index

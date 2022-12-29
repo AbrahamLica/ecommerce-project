@@ -1,11 +1,14 @@
+
 .containerCarrinhoFechado {
     width: 0vw;
     background-color: white;
-    padding: 20px;
+    /* padding: 20px; */
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: all ease .2s;
+    transform: translateX(100%);
+    /* translate: 100%; */
 }
 
 .containerCarrinhoAberto {
@@ -15,12 +18,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition:all ease .2s;
+    transition: all ease .2s;
 }
 
 
-.itemCarrinho {
+.itemCarrinhoAberto {
     display: flex;
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 5px solid black;
+}
+
+.itemCarrinhoFechado {
+    display: none;
     padding: 10px;
     width: 100%;
     margin-top: 10px;
@@ -69,7 +81,14 @@
     font-size: 20px;
 }
 
-.containerValores {
+.containerValoresAberto {
+    margin-top: 10px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.containerValoresFechado {
+    display: none;
     margin-top: 10px;
     margin-bottom: 50px;
     width: 100%;
@@ -85,7 +104,8 @@
     font-size: 30px;
 }
 
-.btnFinalizar {
+.btnFinalizarFechado {
+    display: none;
     width: 80%;
     font-size: 30px;
     padding: 5px;
@@ -93,4 +113,18 @@
     background-color: var(--body-color);
     border: none;
     cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.btnFinalizarAberto {
+    width: 80%;
+    font-size: 30px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: var(--body-color);
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
 }
