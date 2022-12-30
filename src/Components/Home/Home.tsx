@@ -1,20 +1,18 @@
 import Header from "../header/Header";
 import "./Home.css";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Context } from "../../Context/Context";
 import Items from "../Items/items";
-import '../GlobalStyle/index.css'
+import "../GlobalStyle/index.css";
 import ModalCompra from "../ModalCompra/ModalCompra";
 import Carrinho from "../Carrinho/Carrinho";
 
 const Home = () => {
-
   const { state, dispatch } = useContext(Context);
 
   return (
     <div className="body">
       <div className="htmlContainer">
-
         <Header></Header>
 
         <div className="bodyContainer">
@@ -24,17 +22,11 @@ const Home = () => {
 
           <Items></Items>
 
-          <ModalCompra></ModalCompra>
-
-          {/* {state.shop.modalOpen ? <ModalCompra></ModalCompra> : null} */}
-
+          {state.shop.modalOpen ? <ModalCompra></ModalCompra> : null}
         </div>
-
-        
       </div>
 
       <Carrinho></Carrinho>
-
     </div>
   );
 };

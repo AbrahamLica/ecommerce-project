@@ -21,6 +21,7 @@ export function reducerShop(state: ShopReducerInitialStateType, action: ActionTy
             return {...state, modalOpen: action.payload.modalOpen}
             break;
 
+
         case 'OPEN_CART':
             return {...state, openCart: action.payload.openCart}
             break;

@@ -8,9 +8,15 @@
 .containerHeader {
     width: 100%;
     height: 15vh;
-    background-color: var(--header-color);
+    background-color: #F34213;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.containerRight {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -19,9 +25,46 @@
     width: 80px;
 }
 
-.containerRight img {
+.imgUser {
     width: 50px;
     margin-left: 20px;
     margin-right: 20px;
     cursor: pointer; 
+}
+
+.imgCoracao {
+    width: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer; 
+}
+
+.containerCarrinho {
+    margin-left: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.bolinha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: white;
+    text-align: center;
+    transform: translateX(22px);
+}
+
+.bolinha p {
+    color: black;
+}
+
+.imgCarrinho {
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer; 
+    width: 43px;
 }

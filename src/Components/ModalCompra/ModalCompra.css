@@ -1,4 +1,4 @@
-.containerModalCarrinhoFechado {
+.containerModalFechado {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,7 +14,7 @@
     transition: all ease .5s;
 }
 
-.containerModalCarrinhoAberto {
+.containerModalAberto {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,7 +43,7 @@
     opacity: 0;
 }
 
-.modalCarrinho {
+.modal {
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,32 +1,27 @@
 import eye from "../../imgs/eye.svg";
 import cart from "../../imgs/cart.svg";
-import './items.css'
-import '../GlobalStyle/index.css'
-
+import "./items.css";
+import "../GlobalStyle/index.css";
 import { useContext } from "react";
 import { Context } from "../../Context/Context";
 
-
- const Items = () => {
-
+const Items = () => {
   const { state, dispatch } = useContext(Context);
 
   function abrirCompra(index) {
     dispatch({
-      type: 'OPEN_MODAL', 
+      type: "OPEN_MODAL",
       payload: {
         modalOpen: true,
-        pos: index
-      }
-    })
+        pos: index,
+      },
+    });
   }
 
-  return (    
-
+  return (
     <div className="itemsContainer">
       {state.shop.array.map((item, index) => (
         <div className="itemContainer" key={index}>
-
           <img src={require(`${item.src}`)} alt="" className="thumb" />
 
           <div className="informationsContainer">
@@ -45,11 +40,9 @@ import { Context } from "../../Context/Context";
               <p>Add. ao Carrinho</p>
             </div>
           </div>
-
         </div>
       ))}
     </div>
-    
   );
 };
 

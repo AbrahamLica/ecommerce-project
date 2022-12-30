@@ -45,7 +45,12 @@
 }
 
 .itemPrice {
-    font-size: 20px;
+    font-size: 25px;
+    transition: .2s;
+}
+
+.itemPrice:hover {
+    transform: scale(1.2);
 }
 
 .buttonsContainer {
@@ -62,6 +67,12 @@
 .detalhes {
     display: flex;
     cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.detalhes:hover {
+    background-color: #F34213;
 }
 
 .detalhes img {
@@ -71,6 +82,12 @@
 .addCarrinho {
     display: flex;
     cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.addCarrinho:hover {
+    background-color: #F34213;
 }
 
 .addCarrinho img {
