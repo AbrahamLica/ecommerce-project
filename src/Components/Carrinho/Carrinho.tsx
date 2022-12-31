@@ -1,6 +1,7 @@
 import "./Carrinho.css";
 import { Context } from "../../Context/Context";
 import { useContext, useEffect, useState } from "react";
+import close from "../../imgs/close.png";
 
 const Carrinho = () => {
   const { state, dispatch } = useContext(Context);
@@ -46,12 +47,45 @@ const Carrinho = () => {
     setCarrinhoAberto(false);
   }
 
+  function hideOpenCarrinho() {
+    if (state.shop.openCart == true) {
+      dispatch({
+        type: "CLOSE_CART",
+        payload: {
+          openCart: false,
+        },
+      });
+    } else {
+      dispatch({
+        type: "OPEN_CART",
+        payload: {
+          openCart: true,
+        },
+      });
+    }
+  }
+
   return (
     <div
       className={
         carrinhoAberto ? "containerCarrinhoAberto" : "containerCarrinhoFechado"
       }
     >
+      <div
+        className={
+          carrinhoAberto
+            ? "containerCloseImgAberto"
+            : "containerCloseImgFechado"
+        }
+      >
+        <img
+          src={close}
+          alt=""
+          className="closeImg"
+          onClick={hideOpenCarrinho}
+        />
+      </div>
+
       {state.cart.map((item, index) => (
         <div
           className={
@@ -66,10 +100,12 @@ const Carrinho = () => {
             />
             <div className="containerQtdValorItemCarrinho">
               <p className="nameItemCarrinho">{item.itemName}</p>
-              <p className="qtdItemCarrinho">Quantidade: {item.qtdItem}</p>
-              <p className="valorItemCarrinho">
-                Valor: R$ {item.valorTotal?.toFixed(2)}{" "}
-              </p>
+              <div className="containerQtd">
+                <p className="qtdItemCarrinho">Quantidade: {item.qtdItem}</p>
+                <p className="valorItemCarrinho">
+                  Valor: R$ {item.valorTotal?.toFixed(2)}{" "}
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -87,7 +123,9 @@ const Carrinho = () => {
       </div>
 
       <button
-        className={carrinhoAberto ? "btnFinalizarAberto" : "btnFinalizarFechado"}
+        className={
+          carrinhoAberto ? "btnFinalizarAberto" : "btnFinalizarFechado"
+        }
         onClick={closeCart}
       >
         Finalizar Compra
