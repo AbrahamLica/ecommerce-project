@@ -68,3 +68,16 @@
     cursor: pointer; 
     width: 43px;
 }
+
+
+@media (max-width: 425px) {
+
+    .imgUser {
+        display: none;
+    }
+
+    .imgCoracao {
+        display: none;
+    }
+
+  }

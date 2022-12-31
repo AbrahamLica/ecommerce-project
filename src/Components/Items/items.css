@@ -93,3 +93,20 @@
 .addCarrinho img {
     width: 20px;
 }
+
+@media (max-width: 375px) {
+    .thumb {
+      max-width: 200px;
+    }
+
+    .itemContainer {
+        min-height: 250px;
+    }
+
+    .buttonsContainer {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0;
+    }
+  }
+  

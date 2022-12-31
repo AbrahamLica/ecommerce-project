@@ -6,7 +6,6 @@
     flex-direction: column;
     align-items: center;
     transition: all ease .2s;
-    transform: translateX(100%);
 }
 
 .containerCarrinhoAberto {
@@ -182,17 +181,24 @@
 
   @media (max-width: 425px) {
 
+    
+
     .total h2 {
         font-size: 1.1rem;
     }
 
+    .containerCarrinhoFechado {
+        display: none;
+    }
+
     .containerCarrinhoAberto {
         z-index: 10;
+        width: 100vw;
         position: fixed;
-        width: 100%;
-        height: 100vh;
+        height: 100%;
         padding: 5px;
     }
+
     .informationsItemCarrinho {
         flex-direction: row;
         padding: 4px;

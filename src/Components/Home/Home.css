@@ -1,41 +1,77 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .body {
-    display: flex;
+  display: flex;
 }
 
 .htmlContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--body-color);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--body-color);
 }
 
 .bodyContainer {
-    background-color: white;
-    width: 80%;
+  background-color: white;
+  width: 80%;
 }
 
 .titleContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 20px;
-    font-size: 1.3rem;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+footer {
+  padding: 10px;
+}
+
+footer > p {
+  font-size: 30px;
+  color: black;
+  font-weight: bold;
+}
+
+footer a {
+  text-decoration: none;
+  text-shadow: 2px 2px 2px black;
+  cursor: pointer;
+  color: white;
 }
 
 @media (max-width: 1024px) {
-
-    .titleContainer{
-      font-size: .7rem;
-    }
-
+  .titleContainer {
+    font-size: 0.7rem;
   }
+}
+
+@media (max-width: 425px) {
+
+  footer p{
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 375px) {
+
+  footer p{
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 320px) {
+
+  footer p{
+    font-size: 0.7rem;
+  }
+}
 

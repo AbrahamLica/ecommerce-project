@@ -24,6 +24,10 @@ const Home = () => {
 
           {state.shop.modalOpen ? <ModalCompra></ModalCompra> : null}
         </div>
+
+        <footer>
+          <p>Developed by <a href="https://github.com/AbrahamLica" target='_blank'>Abraham Melquisedeque Pereira Licá</a></p>
+        </footer>
       </div>
 
       <Carrinho></Carrinho>

@@ -2,6 +2,7 @@ import "./ModalCompra.css";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context/Context";
 import ReactModal from "react-modal";
+import close from '../../imgs/close.png'
 
 const ModalCompra = () => {
   const { state, dispatch } = useContext(Context);
@@ -70,6 +71,16 @@ const ModalCompra = () => {
       className="containerModalAberto"
     >
       <div className="modal">
+        <div className='containerClose'>
+          
+        
+          <img
+            src={close}
+            alt=""
+            className="closeImg"
+            onClick={fechaModal}
+          />
+        </div>
         <img src={require(`${src}`)} alt="" className="imgItem" />
         <p className="name">{name}</p>
         <p className="valor">Preço: R$ {valorFinalFormatado}</p>
@@ -80,8 +91,8 @@ const ModalCompra = () => {
         </div>
 
         <div className="containerButtons">
-          <button onClick={adicionarAoCarrinho}>Adicionar ao carrinho</button>
-          <button onClick={fechaModal}>Cancelar</button>
+          <button onClick={adicionarAoCarrinho}>Add ao carrinho</button>
+          <button onClick={fechaModal} className='btnCancelar'>Cancelar</button>
         </div>
       </div>
     </ReactModal>
