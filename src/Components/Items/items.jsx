@@ -1,7 +1,5 @@
 import eye from "../../imgs/eye.svg";
 import cart from "../../imgs/cart.svg";
-import "./items.css";
-import "../GlobalStyle/index.css";
 import { useContext } from "react";
 import { Context } from "../../Context/Context";
 

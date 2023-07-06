@@ -1,37 +1,46 @@
-import Header from "../header/Header";
-import "./Home.css";
 import { useContext, useState, useEffect } from "react";
 import { Context } from "../../Context/Context";
+import Header from "../header/Header";
 import Items from "../Items/items";
-import "../GlobalStyle/index.css";
 import ModalCompra from "../ModalCompra/ModalCompra";
 import Carrinho from "../Carrinho/Carrinho";
+import * as C from "./AppStyles";
 
 const Home = () => {
   const { state, dispatch } = useContext(Context);
 
   return (
-    <div className="body">
-      <div className="htmlContainer">
+    <C.Container displayFlex>
+      <C.MainContainer>
         <Header></Header>
 
-        <div className="bodyContainer">
-          <div className="titleContainer">
-            <h1>Os melhores itens Geek você encontra aqui!</h1>
-          </div>
+        <C.MainContainerItems>
+          <C.TitleContainer>
+            <C.Text>Os melhores itens Geek você encontra aqui!</C.Text>
+          </C.TitleContainer>
 
           <Items></Items>
 
           {state.shop.modalOpen ? <ModalCompra></ModalCompra> : null}
-        </div>
+        </C.MainContainerItems>
 
-        <footer>
-          <p>Developed by <a href="https://github.com/AbrahamLica" target='_blank'>Abraham Melquisedeque Pereira Licá</a></p>
-        </footer>
-      </div>
+        <C.Container padding="10px">
+          <C.Text fontSize="30px" color="black" bold>
+            Developed by
+            <C.Link
+              color="white"
+              href="https://github.com/AbrahamLica"
+              target="_blank"
+            >
+              Abraham Melquisedeque Pereira Licá
+            </C.Link>
+          </C.Text>
+        </C.Container>
+      </C.MainContainer>
 
       <Carrinho></Carrinho>
-    </div>
+      
+    </C.Container>
   );
 };
 

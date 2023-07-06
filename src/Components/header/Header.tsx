@@ -1,11 +1,10 @@
-import "./Header.css";
 import logo from "../../imgs/logo.png";
 import user from "../../imgs/user.png";
-import carrinho from "../../imgs/carrinho.png";
-import coracao from "../../imgs/coracao.png";
-import "../GlobalStyle/index.css";
+import cart from "../../imgs/carrinho.png";
+import hearth from "../../imgs/coracao.png";
 import { Context } from "../../Context/Context";
 import { useContext } from "react";
+import * as C from "./AppStyles";
 
 const Header = () => {
   const { state, dispatch } = useContext(Context);
@@ -13,40 +12,41 @@ const Header = () => {
   function hideOpenCarrinho() {
     if (state.shop.openCart == true) {
       dispatch({
-        type: 'CLOSE_CART',
+        type: "CLOSE_CART",
         payload: {
-          openCart: false
-        }
-      })
+          openCart: false,
+        },
+      });
     } else {
       dispatch({
-        type: 'OPEN_CART',
+        type: "OPEN_CART",
         payload: {
-          openCart: true
-        }
-      })
-    }  
+          openCart: true,
+        },
+      });
+    }
   }
 
   return (
-    <div className="containerHeader">
-      <div className="containerLeft">
-        <img src={logo} alt="" />
-      </div>
+    <C.MainContainer>
+      <C.Container>
+        <C.Logo src={logo}></C.Logo>
+      </C.Container>
 
-      <div className="containerRight">
-        <img src={user} alt="" className="imgUser" />
-        <img src={coracao} alt="" className="imgCoracao" />
+      <C.Container displayFlex alignItems="center" justifyContent="center">
+        <C.ImgUser src={user}></C.ImgUser>
+        <C.ImgHearth src={hearth}></C.ImgHearth>
+
         {state.cart.length ? (
-          <div className="containerCarrinho" onClick={hideOpenCarrinho}>
-            <div className="bolinha">
-              <p>{state.cart.length}</p>
-            </div>
-            <img src={carrinho} alt="" className="imgCarrinho" />
-          </div>
+          <C.ContainerCart onClick={hideOpenCarrinho}>
+            <C.ContainerQtdItemsCart>
+              <C.Text color="black">{state.cart.length}</C.Text>
+            </C.ContainerQtdItemsCart>
+            <C.ImgCart src={cart}></C.ImgCart>
+          </C.ContainerCart>
         ) : null}
-      </div>
-    </div>
+      </C.Container>
+    </C.MainContainer>
   );
 };
 
