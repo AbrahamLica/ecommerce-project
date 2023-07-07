@@ -1,8 +1,8 @@
-import "./ModalCompra.css";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context/Context";
+import * as C from "./AppStyles";
 import ReactModal from "react-modal";
-import close from '../../imgs/close.png'
+import close from "../../imgs/close.png";
 
 const ModalCompra = () => {
   const { state, dispatch } = useContext(Context);
@@ -65,37 +65,41 @@ const ModalCompra = () => {
   }
 
   return (
-    <ReactModal
-      isOpen={state.shop.modalOpen}
-      closeTimeoutMS={300}
-      className="containerModalAberto"
-    >
-      <div className="modal">
-        <div className='containerClose'>
-          
-        
-          <img
-            src={close}
-            alt=""
-            className="closeImg"
-            onClick={fechaModal}
-          />
-        </div>
-        <img src={require(`${src}`)} alt="" className="imgItem" />
-        <p className="name">{name}</p>
-        <p className="valor">Preço: R$ {valorFinalFormatado}</p>
-        <div className="containerQt">
-          <button onClick={removeQtd}>-</button>
-          <p>{qtd}</p>
-          <button onClick={addQtd}>+</button>
-        </div>
+    <C.Modal>
+      <C.ContainerClose>
+        <img src={close} className="closeImg" onClick={fechaModal} />
+      </C.ContainerClose>
 
-        <div className="containerButtons">
-          <button onClick={adicionarAoCarrinho}>Add ao carrinho</button>
-          <button onClick={fechaModal} className='btnCancelar'>Cancelar</button>
-        </div>
-      </div>
-    </ReactModal>
+      <img src={require(`${src}`)} alt="" className="imgItem" />
+
+      <C.Name className="name">{name}</C.Name>
+      <C.Value className="valor">Preço: R$ {valorFinalFormatado}</C.Value>
+
+      <C.ContainerQt>
+        <C.Button onClick={removeQtd}>-</C.Button>
+        <C.Text>{qtd}</C.Text>
+        <C.Button onClick={addQtd}>+</C.Button>
+      </C.ContainerQt>
+
+      <C.ContainerButtons>
+        <C.Button
+          fontSize="20px"
+          padding="5px"
+          margin="0px 10px"
+          onClick={adicionarAoCarrinho}
+        >
+          Add ao carrinho
+        </C.Button>
+        <C.Button
+          fontSize="20px"
+          padding="5px"
+          margin="0px 10px"
+          onClick={fechaModal}
+        >
+          Cancelar
+        </C.Button>
+      </C.ContainerButtons>
+    </C.Modal>
   );
 };
 

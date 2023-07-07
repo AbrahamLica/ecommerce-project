@@ -1,3 +1,4 @@
+import * as C from "./AppStyles";
 import eye from "../../imgs/eye.svg";
 import cart from "../../imgs/cart.svg";
 import { useContext } from "react";
@@ -17,30 +18,30 @@ const Items = () => {
   }
 
   return (
-    <div className="itemsContainer">
+    <C.ContainerItems>
       {state.shop.array.map((item, index) => (
-        <div className="itemContainer" key={index}>
-          <img src={require(`${item.src}`)} alt="" className="thumb" />
+        <C.ContainerItem key={index}>
+          <img src={require(`../../imgs/${item.src}`)} width={300} />
 
-          <div className="informationsContainer">
-            <p className="itemName">{item.name}</p>
-            <p className="itemPrice">R$ {item.valor}</p>
-          </div>
+          <C.ContainerInformations>
+            <C.ItemName>{item.name}</C.ItemName>
+            <C.ItemPrice>R$ {item.valor}</C.ItemPrice>
+          </C.ContainerInformations>
 
-          <div className="buttonsContainer">
-            <div className="detalhes">
-              <img src={eye} alt="" />
-              <p>Detalhes</p>
-            </div>
+          <C.ContainerButtons>
+            <C.ContainerDetails>
+              <C.IconDetails src={eye}></C.IconDetails>
+              <C.Text>Detalhes</C.Text>
+            </C.ContainerDetails>
 
-            <div className="addCarrinho" onClick={() => abrirCompra(index)}>
-              <img src={cart} alt="" />
-              <p>Add. ao Carrinho</p>
-            </div>
-          </div>
-        </div>
+            <C.AddCarrinho onClick={() => abrirCompra(index)}>
+              <img src={cart} alt="" width={20} />
+              <C.Text>Add. ao Carrinho</C.Text>
+            </C.AddCarrinho>
+          </C.ContainerButtons>
+        </C.ContainerItem>
       ))}
-    </div>
+    </C.ContainerItems>
   );
 };
 

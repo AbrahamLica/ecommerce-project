@@ -30,125 +30,19 @@
   transition: all ease 0.5s;
 }
 
-.ReactModal__Overlay {
-  opacity: 0;
-  transition: opacity 300ms ease-in-out;
-}
-
-.ReactModal__Overlay--after-open {
-  opacity: 1;
-}
-
-.ReactModal__Overlay--before-close {
-  opacity: 0;
-}
-
-.modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-color: white;
-  padding: 30px;
-  width: 40vw;
-  z-index: 10;
-  border-radius: 20px;
-}
-
-.containerClose {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10px;
-}
 
 .closeImg {
     width: 50px;
     cursor: pointer;
 }
 
-.name {
-  font-size: 30px;
-  font-weight: bold;
-  margin-top: 10px;
-  text-align: center;
-}
-
-.valor {
-  font-size: 25px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.containerQt {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.containerQt button {
-  width: 30px;
-  font-size: 20px;
-  margin: 10px;
-}
 
 .imgItem {
   max-width: 300px;
 }
 
-.containerButtons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-}
 
 
-.containerButtons button {
-  font-size: 20px;
-  padding: 5px;
-  margin-left: 10px;
-}
 
 
-@media (max-width: 768px) {
-  .modal {
-    width: 70vw;
-    padding: 20px;
-  }
-}
 
-@media (max-width: 425px) {
-  .imgItem {
-    max-width: 200px;
-  }
-
-  .modal {
-    width: 70vw;
-    padding: 5px;
-  }
-
-  .name {
-    font-size: 1.2rem;
-  }
-
-  .valor {
-    font-size: 1.2rem;
-    margin: 0;
-  }
-
-  .containerButtons {
-    flex-direction: column;
-    margin-top: 5px;
-  }
-
-  .containerButtons button {
-    margin-bottom: 10px;
-    margin-left: 0;
-  }
-
-  .btnCancelar {
-    display: none;
-  }
-
-}
