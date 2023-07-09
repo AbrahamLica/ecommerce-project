@@ -39,7 +39,6 @@ const Home = () => {
       </C.MainContainer>
 
       <Carrinho></Carrinho>
-      
     </C.Container>
   );
 };

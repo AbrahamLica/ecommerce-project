@@ -73,8 +73,6 @@ export type MainContainerDetailsProps = {
   background: any;
 };
 
-
-
 /////////////////////////// GENERAL ///////////////////////
 
 export const Container = styled.div<ContainerProps>`
@@ -122,21 +120,30 @@ export const Link = styled.a<TextProps>`
   text-decoration: none;
 `;
 
-
-
 /////////////////////////// ITEMS ///////////////////////
 
 export const Modal = styled.div<ContainerProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  background-color: white;
-  padding: 30px;
-  width: 40vw;
-  z-index: 10;
-  border-radius: 20px;
+  width: 100%;
+  height: 20vh;
+  background-color: red;
+  transition: all ease 0.5s;
 `;
+
+// export const Modal = styled.div<ContainerProps>`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-direction: column;
+//   padding: 30px;
+//   /* height: 400px; */
+//   background-color: red;
+//   width: 40vw;
+//   z-index: 10;
+//   border-radius: 20px;
+// `;
 
 export const ContainerClose = styled.div<ContainerProps>`
   width: 100%;
@@ -197,40 +204,40 @@ export const ContainerButtons = styled.div<ContainerProps>`
 //       padding: 20px;
 //     }
 //   }
-  
+
 //   @media (max-width: 425px) {
 //     .imgItem {
 //       max-width: 200px;
 //     }
-  
+
 //     .modal {
 //       width: 70vw;
 //       padding: 5px;
 //     }
-  
+
 //     .name {
 //       font-size: 1.2rem;
 //     }
-  
+
 //     .valor {
 //       font-size: 1.2rem;
 //       margin: 0;
 //     }
-  
+
 //     .containerButtons {
 //       flex-direction: column;
 //       margin-top: 5px;
 //     }
-  
+
 //     .containerButtons button {
 //       margin-bottom: 10px;
 //       margin-left: 0;
 //     }
-  
+
 //     .btnCancelar {
 //       display: none;
 //     }
-  
+
 //   }
 
 // #B3001B

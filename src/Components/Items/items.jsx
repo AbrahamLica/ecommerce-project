@@ -15,9 +15,12 @@ const Items = () => {
         pos: index,
       },
     });
+
+    console.log(state.shop);
   }
 
   return (
+    
     <C.ContainerItems>
       {state.shop.array.map((item, index) => (
         <C.ContainerItem key={index}>

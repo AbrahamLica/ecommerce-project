@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context/Context";
 import * as C from "./AppStyles";
-import ReactModal from "react-modal";
 import close from "../../imgs/close.png";
 
 const ModalCompra = () => {
@@ -65,12 +64,13 @@ const ModalCompra = () => {
   }
 
   return (
+
     <C.Modal>
       <C.ContainerClose>
         <img src={close} className="closeImg" onClick={fechaModal} />
       </C.ContainerClose>
 
-      <img src={require(`${src}`)} alt="" className="imgItem" />
+      {/* <img src={require(`${src}`)} alt="" className="imgItem" /> */}
 
       <C.Name className="name">{name}</C.Name>
       <C.Value className="valor">Preço: R$ {valorFinalFormatado}</C.Value>
