@@ -122,28 +122,35 @@ export const Link = styled.a<TextProps>`
 
 /////////////////////////// ITEMS ///////////////////////
 
-export const Modal = styled.div<ContainerProps>`
+export const ContainerModal = styled.div<ContainerProps>`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 20vh;
-  background-color: red;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.322);
+  opacity: 1;
   transition: all ease 0.5s;
 `;
 
-// export const Modal = styled.div<ContainerProps>`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   flex-direction: column;
-//   padding: 30px;
-//   /* height: 400px; */
-//   background-color: red;
-//   width: 40vw;
-//   z-index: 10;
-//   border-radius: 20px;
-// `;
+export const Modal = styled.div<ContainerProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+  height: 400px;
+  background-color: white;
+  width: 40vw;
+  z-index: 10;
+  border-radius: 20px;
+`;
 
 export const ContainerClose = styled.div<ContainerProps>`
   width: 100%;

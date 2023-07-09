@@ -29,6 +29,7 @@ const ModalCompra = () => {
   }
 
   function adicionarAoCarrinho() {
+
     dispatch({
       type: "ADD_ITEM_TO_CART",
       payload: {
@@ -52,6 +53,7 @@ const ModalCompra = () => {
         openCart: true,
       },
     });
+
   }
 
   function fechaModal() {
@@ -64,42 +66,43 @@ const ModalCompra = () => {
   }
 
   return (
+    <C.ContainerModal>
+      <C.Modal>
+        <C.ContainerClose>
+          <img src={close} className="closeImg" onClick={fechaModal} />
+        </C.ContainerClose>
 
-    <C.Modal>
-      <C.ContainerClose>
-        <img src={close} className="closeImg" onClick={fechaModal} />
-      </C.ContainerClose>
+        <img src={require(`../../imgs/${src}`)} alt="" className="imgItem" />
 
-      {/* <img src={require(`${src}`)} alt="" className="imgItem" /> */}
+        <C.Name className="name">{name}</C.Name>
+        <C.Value className="valor">Preço: R$ {valorFinalFormatado}</C.Value>
 
-      <C.Name className="name">{name}</C.Name>
-      <C.Value className="valor">Preço: R$ {valorFinalFormatado}</C.Value>
+        <C.ContainerQt>
+          <C.Button onClick={removeQtd}>-</C.Button>
+          <C.Text>{qtd}</C.Text>
+          <C.Button onClick={addQtd}>+</C.Button>
+        </C.ContainerQt>
 
-      <C.ContainerQt>
-        <C.Button onClick={removeQtd}>-</C.Button>
-        <C.Text>{qtd}</C.Text>
-        <C.Button onClick={addQtd}>+</C.Button>
-      </C.ContainerQt>
-
-      <C.ContainerButtons>
-        <C.Button
-          fontSize="20px"
-          padding="5px"
-          margin="0px 10px"
-          onClick={adicionarAoCarrinho}
-        >
-          Add ao carrinho
-        </C.Button>
-        <C.Button
-          fontSize="20px"
-          padding="5px"
-          margin="0px 10px"
-          onClick={fechaModal}
-        >
-          Cancelar
-        </C.Button>
-      </C.ContainerButtons>
-    </C.Modal>
+        <C.ContainerButtons>
+          <C.Button
+            fontSize="20px"
+            padding="5px"
+            margin="0px 10px"
+            onClick={adicionarAoCarrinho}
+          >
+            Add ao carrinho
+          </C.Button>
+          <C.Button
+            fontSize="20px"
+            padding="5px"
+            margin="0px 10px"
+            onClick={fechaModal}
+          >
+            Cancelar
+          </C.Button>
+        </C.ContainerButtons>
+      </C.Modal>
+    </C.ContainerModal>
   );
 };
 
