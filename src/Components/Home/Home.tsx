@@ -7,7 +7,6 @@ import Carrinho from "../Carrinho/Carrinho";
 import * as C from "./AppStyles";
 
 const Home = () => {
-
   const { state, dispatch } = useContext(Context);
 
   return (
@@ -22,7 +21,6 @@ const Home = () => {
 
           <Items></Items>
 
-          {/* <ModalCompra></ModalCompra> */}
           {state.shop.modalOpen ? <ModalCompra></ModalCompra> : null}
         </C.MainContainerItems>
 

@@ -122,130 +122,80 @@ export const Link = styled.a<TextProps>`
 
 /////////////////////////// ITEMS ///////////////////////
 
-export const ContainerModal = styled.div<ContainerProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  overflow-y: auto;
-  background-color: rgba(0, 0, 0, 0.322);
-  opacity: 1;
-  transition: all ease 0.5s;
-`;
-
-export const Modal = styled.div<ContainerProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 30px;
-  /* height: 400px; */
+export const ContainerCart = styled.div<ContainerProps>`
   background-color: white;
-  min-width: 35vw;
-  z-index: 10;
-  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all ease 0.2s;
 `;
 
-export const ContainerClose = styled.div<ContainerProps>`
+export const ContainerImgClose = styled.div<ContainerProps>`
   width: 100%;
-  display: flex;
   justify-content: flex-end;
 `;
 
-export const Name = styled.p<ContainerProps>`
-  font-size: 30px;
-  font-weight: bold;
-  margin-top: 10px;
-  text-align: center;
+export const ImgClose = styled.img<ContainerProps>`
+  width: 50px;
+  cursor: pointer;
 `;
 
-export const Value = styled.p<ContainerProps>`
-  font-size: 25px;
+
+export const ItemsCart = styled.div<ContainerProps>`
+  display: none;
+  padding: 10px;
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
+  border-bottom: 5px solid black;
 `;
 
-export const ContainerQt = styled.div<ContainerProps>`
+export const InformationsCartItem = styled.div<ContainerProps>`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  margin-left: 5px;
+  padding: 10px;
+  width: 100%;
 `;
 
-export const Button = styled.button<ContainerProps>`
-  color: ${(props) => props.color};
-  width: ${(props) => props.width};
-  height: ${(props) => props.heigth};
-  background-color: ${(props) => props.backgroundColor};
-  display: ${(props) => (props.displayFlex ? "flex" : "block")};
-  flex: ${(props) => props.flex};
-  flex-direction: ${(props) => (props.column ? "column" : "row")};
-  flex-wrap: ${(props) => props.flexWrap && "wrap"};
-  align-items: ${(props) => props.alignItems};
-  justify-content: ${(props) => props.justifyContent};
-  margin: ${(props) => props.margin};
-  padding: ${(props) => props.padding};
-  border: ${(props) => props.border};
-  border-radius: ${(props) => props.borderRadius};
-  cursor: ${(props) => (props.cursorPointer ? "pointer" : null)};
-  font-size: ${(props) => props.fontSize};
-  text-align: ${(props) => props.textAlign};
+export const ImgCartItem = styled.img<ContainerProps>`
+  height: 100px;
+  max-width: 80px;
 `;
 
-export const ContainerButtons = styled.div<ContainerProps>`
+export const ContainerDescription = styled.div<ContainerProps>`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 30px;
+  justify-content: flex-end;
+  width: 100%;
+  justify-content: space-between;
 `;
 
-// @media (max-width: 768px) {
-//     .modal {
-//       width: 70vw;
-//       padding: 20px;
-//     }
-//   }
+export const ItemName = styled.p<ContainerProps>`
+  font-weight: bold;
+  font-size: 19px;
+  text-align: center;
+  margin-bottom: 20px;
+`;
 
-//   @media (max-width: 425px) {
-//     .imgItem {
-//       max-width: 200px;
-//     }
+export const ContainerValues = styled.p<ContainerProps>`
+  margin-top: 10px;
+  margin-bottom: 50px;
+  width: 100%;
+`;
 
-//     .modal {
-//       width: 70vw;
-//       padding: 5px;
-//     }
+export const ButtonFinish = styled.button<ContainerProps>`
+  width: 80%;
+  font-size: 30px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+`;
 
-//     .name {
-//       font-size: 1.2rem;
-//     }
 
-//     .valor {
-//       font-size: 1.2rem;
-//       margin: 0;
-//     }
-
-//     .containerButtons {
-//       flex-direction: column;
-//       margin-top: 5px;
-//     }
-
-//     .containerButtons button {
-//       margin-bottom: 10px;
-//       margin-left: 0;
-//     }
-
-//     .btnCancelar {
-//       display: none;
-//     }
-
-//   }
-
-// #B3001B
-// #255C99
-// #7EA3CC

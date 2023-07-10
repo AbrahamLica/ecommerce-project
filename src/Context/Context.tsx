@@ -62,6 +62,7 @@ export function reducerCart(
       newState.push({
         itemName: action.payload.itemName,
         qtdItem: action.payload.qtdItem,
+        valorUnidade: action.payload.valorUnidade,
         valorTotal: action.payload.valorTotal,
         src: action.payload.src,
       });

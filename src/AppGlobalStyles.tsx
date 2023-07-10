@@ -7,10 +7,9 @@ export const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
         padding: 0;
-        /* font-family: 'Roboto Condensed'; */
         box-sizing: border-box;
         width: 100%;
-        background-color: white;
+        /* background-color: red; */
         overflow-x: hidden;
     }
 `;

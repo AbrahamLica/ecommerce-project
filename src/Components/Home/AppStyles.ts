@@ -121,12 +121,13 @@ export const MainContainer = styled.div<ContainerProps>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #255c99;
+  background-color: #221F1C;
 `;
 
 export const MainContainerItems = styled.div<ContainerProps>`
   background-color: white;
   width: 80%;
+  background-color: #E0E2DB;
 `;
 
 export const TitleContainer = styled.div<ContainerProps>`

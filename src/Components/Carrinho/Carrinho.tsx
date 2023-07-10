@@ -1,4 +1,4 @@
-import "./Carrinho.css";
+import * as C from "./AppStyles";
 import { Context } from "../../Context/Context";
 import { useContext, useEffect, useState } from "react";
 import close from "../../imgs/close.png";
@@ -66,71 +66,56 @@ const Carrinho = () => {
   }
 
   return (
-    <div
-      className={
-        carrinhoAberto ? "containerCarrinhoAberto" : "containerCarrinhoFechado"
-      }
+    <C.ContainerCart
+      style={{
+        width: carrinhoAberto ? "40vw" : "0vw",
+        padding: carrinhoAberto ? "20px" : "0px",
+      }}
     >
-      <div
-        className={
-          carrinhoAberto
-            ? "containerCloseImgAberto"
-            : "containerCloseImgFechado"
-        }
+      <C.ContainerImgClose
+        style={{ display: carrinhoAberto ? "flex" : "none" }}
       >
-        <img
-          src={close}
-          alt=""
-          className="closeImg"
-          onClick={hideOpenCarrinho}
-        />
-      </div>
+        <C.ImgClose src={close} onClick={hideOpenCarrinho} />
+      </C.ContainerImgClose>
 
       {state.cart.map((item, index) => (
-        <div
-          className={
-            carrinhoAberto ? "itemCarrinhoAberto" : "itemCarrinhoFechado"
-          }
-        >
-          <div className="informationsItemCarrinho">
-            <img
-              src={require(`${item.src}`)}
-              alt=""
-              className="imgItemCarrinho"
-            />
-            <div className="containerQtdValorItemCarrinho">
-              <p className="nameItemCarrinho">{item.itemName}</p>
-              <div className="containerQtd">
-                <p className="qtdItemCarrinho">Quantidade: {item.qtdItem}</p>
-                <p className="valorItemCarrinho">
-                  Valor: R$ {item.valorTotal?.toFixed(2)}{" "}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <C.ItemsCart style={{ display: carrinhoAberto ? "flex" : "none" }}>
+          <C.InformationsCartItem>
+            <C.ImgCartItem src={require(`../../imgs/${item.src}`)} />
+
+            <C.ContainerDescription>
+              <C.ItemName>{item.itemName}</C.ItemName>
+
+              <C.Container>
+                <C.Text fontSize="20px" textAlign="center">
+                  Quantidade: {item.qtdItem}
+                </C.Text>
+                <C.Text fontSize="20px" textAlign="center">
+                  Valor unitário: R$ {item.valorUnidade}
+                </C.Text>
+                <C.Text fontSize="20px" textAlign="center">
+                  Valor final: R$ {item.valorTotal?.toFixed(2)}{" "}
+                </C.Text>
+              </C.Container>
+            </C.ContainerDescription>
+          </C.InformationsCartItem>
+        </C.ItemsCart>
       ))}
 
-      <div
-        className={
-          carrinhoAberto ? "containerValoresAberto" : "containerValoresFechado"
-        }
-      >
-        <div className="total">
-          <h2>Total: </h2>
-          <h2>R$ {valorTotal}</h2>
-        </div>
-      </div>
+      <C.ContainerValues style={{ display: carrinhoAberto ? "block" : "none" }}>
+        <C.Container displayFlex justifyContent="space-around" width="100%">
+          <C.Text fontSize="20px">Total: </C.Text>
+          <C.Text fontSize="20px">R$ {valorTotal}</C.Text>
+        </C.Container>
+      </C.ContainerValues>
 
-      <button
-        className={
-          carrinhoAberto ? "btnFinalizarAberto" : "btnFinalizarFechado"
-        }
+      <C.ButtonFinish
+        style={{ display: carrinhoAberto ? "block" : "none" }}
         onClick={closeCart}
       >
         Finalizar Compra
-      </button>
-    </div>
+      </C.ButtonFinish>
+    </C.ContainerCart>
   );
 };
 

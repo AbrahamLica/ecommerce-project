@@ -35,6 +35,7 @@ const ModalCompra = () => {
       payload: {
         itemName: name,
         qtdItem: qtd,
+        valorUnidade: valor,
         valorTotal: valorFinal,
         src: src,
       },
@@ -69,17 +70,18 @@ const ModalCompra = () => {
     <C.ContainerModal>
       <C.Modal>
         <C.ContainerClose>
-          <img src={close} className="closeImg" onClick={fechaModal} />
+          <img src={close} onClick={fechaModal} width={60} />
         </C.ContainerClose>
 
-        <img src={require(`../../imgs/${src}`)} alt="" className="imgItem" />
+        <img src={require(`../../imgs/${src}`)} alt="" width={230} />
 
         <C.Name className="name">{name}</C.Name>
-        <C.Value className="valor">Preço: R$ {valorFinalFormatado}</C.Value>
+        <C.Value className="valor">Valor unidade: R$ {valor}</C.Value>
+        <C.Value className="valor">Valor final: R$ {valorFinalFormatado}</C.Value>
 
         <C.ContainerQt>
           <C.Button onClick={removeQtd}>-</C.Button>
-          <C.Text>{qtd}</C.Text>
+          <C.Text margin="10px">{qtd}</C.Text>
           <C.Button onClick={addQtd}>+</C.Button>
         </C.ContainerQt>
 
@@ -101,6 +103,8 @@ const ModalCompra = () => {
             Cancelar
           </C.Button>
         </C.ContainerButtons>
+
+        
       </C.Modal>
     </C.ContainerModal>
   );

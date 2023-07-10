@@ -1,238 +1,111 @@
 
-.containerCarrinhoFechado {
-    width: 0vw;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: all ease .2s;
-}
-
-.containerCarrinhoAberto {
-    width: 40vw;
-    background-color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: all ease .2s;
-}
-
-.containerCloseImgAberto {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.containerCloseImgFechado {
-    width: 100%;
-    display: none;
-    justify-content: flex-end;
-}
-
-.closeImg {
-    width: 50px;
-    cursor: pointer;
-}
 
 
-.itemCarrinhoAberto {
-    display: flex;
-    padding: 10px;
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-bottom: 5px solid black;
-}
-
-.itemCarrinhoFechado {
-    display: none;
-    padding: 10px;
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-bottom: 5px solid black;
-}
-
-.imgItemCarrinho {
-    height: 100px;
-    max-width: 80px;
-}
-
-.informationsItemCarrinho {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    margin-left: 5px;
-    padding: 10px;
-    width: 100%;
-}
-
-.nameItemCarrinho {
-    font-weight: bold;
-    font-size: 19px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.containerQtdValorItemCarrinho {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.qtdItemCarrinho {
-    text-align: center;
-    font-size: 20px;
-}
-
-.valorItemCarrinho {
-    text-align: center;
-    font-size: 20px;
-}
-
-.containerValoresAberto {
-    margin-top: 10px;
-    margin-bottom: 50px;
-    width: 100%;
-}
-
-.containerValoresFechado {
-    display: none;
-    margin-top: 10px;
-    margin-bottom: 50px;
-    width: 100%;
-}
-
-.total {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-}
-
-.total h2 {
-    font-size: 30px;
-}
 
 .btnFinalizarFechado {
-    display: none;
-    width: 80%;
-    font-size: 30px;
-    padding: 5px;
-    border-radius: 10px;
-    background-color: var(--body-color);
-    border: none;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
+  display: none;
+  width: 80%;
+  font-size: 30px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: var(--body-color);
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
 }
 
 .btnFinalizarAberto {
-    width: 80%;
-    font-size: 30px;
-    padding: 5px;
-    border-radius: 10px;
-    background-color: var(--body-color);
-    border: none;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
+  width: 80%;
+  font-size: 30px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: var(--body-color);
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
 }
 
-
 @media (max-width: 1024px) {
-
-    .informationsItemCarrinho {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nameItemCarrinho{
-        font-size: 1.2rem;
-        margin-bottom: 8px;
-      }
-
-    .imgItemCarrinho {
-        margin-bottom: 10px;
-    }
-
-    .qtdItemCarrinho {
-        margin-bottom: 8px;
-    }
-
-    .btnFinalizarAberto {
-        width: 100%;
-        font-size: 1.1rem;
-    }
-
+  .informationsItemCarrinho {
+    flex-direction: column;
+    align-items: center;
   }
 
-
-  @media (max-width: 768px) {
-
-    .total h2 {
-        font-size: 1.3rem;
-    }
-
+  .nameItemCarrinho {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
   }
 
-  @media (max-width: 425px) {
-
-    
-
-    .total h2 {
-        font-size: 1.1rem;
-    }
-
-    .containerCarrinhoFechado {
-        display: none;
-    }
-
-    .containerCarrinhoAberto {
-        z-index: 10;
-        width: 100vw;
-        position: fixed;
-        height: 100%;
-        padding: 5px;
-    }
-
-    .informationsItemCarrinho {
-        flex-direction: row;
-        padding: 4px;
-        margin: 5px;
-    }
-
-    .nameItemCarrinho {
-        font-size: 0.7rem;
-    }
-
-    .itemCarrinhoAberto {
-        border-bottom: 2px solid black;
-        padding: 0px;
-        margin: 0;
-    }
-
-    .qtdItemCarrinho {
-        font-size: 0.7rem;
-        margin: 2px;
-    }
-
-    .valorItemCarrinho {
-        font-size: 0.7rem;
-    }
-
-    .imgItemCarrinho {
-        height: auto;
-        width: 50px;
-    }
-
-    .closeImg {
-        width: 30px;
-    }
-
+  .imgItemCarrinho {
+    margin-bottom: 10px;
   }
 
+  .qtdItemCarrinho {
+    margin-bottom: 8px;
+  }
 
+  .btnFinalizarAberto {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .total h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .total h2 {
+    font-size: 1.1rem;
+  }
+
+  .containerCarrinhoFechado {
+    display: none;
+  }
+
+  .containerCarrinhoAberto {
+    z-index: 10;
+    width: 100vw;
+    position: fixed;
+    height: 100%;
+    padding: 5px;
+  }
+
+  .informationsItemCarrinho {
+    flex-direction: row;
+    padding: 4px;
+    margin: 5px;
+  }
+
+  .nameItemCarrinho {
+    font-size: 0.7rem;
+  }
+
+  .itemCarrinhoAberto {
+    border-bottom: 2px solid black;
+    padding: 0px;
+    margin: 0;
+  }
+
+  .qtdItemCarrinho {
+    font-size: 0.7rem;
+    margin: 2px;
+  }
+
+  .valorItemCarrinho {
+    font-size: 0.7rem;
+  }
+
+  .imgItemCarrinho {
+    height: auto;
+    width: 50px;
+  }
+
+  .closeImg {
+    width: 30px;
+  }
+}

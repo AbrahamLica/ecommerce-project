@@ -32,6 +32,7 @@ const Items = () => {
           </C.ContainerInformations>
 
           <C.ContainerButtons>
+
             <C.ContainerDetails>
               <C.IconDetails src={eye}></C.IconDetails>
               <C.Text>Detalhes</C.Text>
@@ -39,9 +40,11 @@ const Items = () => {
 
             <C.AddCarrinho onClick={() => abrirCompra(index)}>
               <img src={cart} alt="" width={20} />
-              <C.Text>Add. ao Carrinho</C.Text>
+              <C.Text fontSize="17px">Add. ao Carrinho</C.Text>
             </C.AddCarrinho>
+
           </C.ContainerButtons>
+
         </C.ContainerItem>
       ))}
     </C.ContainerItems>

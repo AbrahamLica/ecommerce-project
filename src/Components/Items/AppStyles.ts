@@ -166,17 +166,18 @@ export const ContainerButtons = styled.div<ContainerProps>`
   align-items: flex-end;
   justify-content: space-between;
   width: 100%;
-  margin-top: 20px;
-  font-size: 18px;
-  flex: 1;
-  padding: 10px;
+  margin-bottom: 15px;
 `;
 
 export const ContainerDetails = styled.div<ContainerProps>`
   display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   border-radius: 5px;
-  padding: 5px;
+  height: 35px;
+  padding: 0px 5px;
+  transition: 0.3s;
 
   :hover {
     background-color: #f34213;
@@ -185,13 +186,18 @@ export const ContainerDetails = styled.div<ContainerProps>`
 
 export const IconDetails = styled.img<ContainerProps>`
   width: 20px;
+  margin-right: 5px;
 `;
 
 export const AddCarrinho = styled.div<ContainerProps>`
   display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   border-radius: 5px;
-  padding: 5px;
+  height: 35px;
+  padding: 0px 5px;
+  transition: 0.3s;
 
   :hover {
     background-color: #f34213;

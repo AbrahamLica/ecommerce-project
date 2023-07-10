@@ -118,11 +118,16 @@ export const Link = styled.a<TextProps>`
 export const MainContainer = styled.div<ContainerProps>`
   width: 100%;
   height: 15vh;
-  background-color: #f34213;
+  background-color: #0B0A09; 
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
+
+
+// #E6AF2E
+// #E0E2DB
+// #0B0A09
 
 export const MainContainerItems = styled.div<ContainerProps>`
   background-color: white;
