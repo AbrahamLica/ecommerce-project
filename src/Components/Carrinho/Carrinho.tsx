@@ -1,7 +1,7 @@
 import * as C from "./AppStyles";
 import { Context } from "../../Context/Context";
 import { useContext, useEffect, useState } from "react";
-import close from "../../imgs/close.png";
+
 
 const Carrinho = () => {
   const { state, dispatch } = useContext(Context);

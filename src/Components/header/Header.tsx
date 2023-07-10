@@ -1,8 +1,4 @@
 import * as C from "./AppStyles";
-import logo from "../../imgs/logo.png";
-import user from "../../imgs/user.png";
-import cart from "../../imgs/carrinho.png";
-import hearth from "../../imgs/coracao.png";
 import { Context } from "../../Context/Context";
 import { useContext } from "react";
 

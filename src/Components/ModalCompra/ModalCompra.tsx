@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context/Context";
 import * as C from "./AppStyles";
-import close from "../../imgs/close.png";
+
 
 const ModalCompra = () => {
   const { state, dispatch } = useContext(Context);
