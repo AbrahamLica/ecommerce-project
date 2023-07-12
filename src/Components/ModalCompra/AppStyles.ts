@@ -152,6 +152,11 @@ export const Modal = styled.div<ContainerProps>`
   border-radius: 20px;
 `;
 
+export const IconClose = styled.img<ContainerProps>`
+  width: 60px;
+  cursor: pointer;
+`;
+
 export const ContainerClose = styled.div<ContainerProps>`
   width: 100%;
   display: flex;
@@ -159,14 +164,13 @@ export const ContainerClose = styled.div<ContainerProps>`
 `;
 
 export const Name = styled.p<ContainerProps>`
-  font-size: 30px;
-  font-weight: bold;
-  margin-top: 10px;
+  font-size: 1.5rem;
+  margin-top: 15px;
   text-align: center;
 `;
 
 export const Value = styled.p<ContainerProps>`
-  font-size: 25px;
+  font-size: 1rem;
   margin-top: 10px;
   margin-bottom: 10px;
 `;

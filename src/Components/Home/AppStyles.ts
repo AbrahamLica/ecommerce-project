@@ -130,13 +130,13 @@ export const MainContainerItems = styled.div<ContainerProps>`
   background-color: #E0E2DB;
 `;
 
-export const TitleContainer = styled.div<ContainerProps>`
-  display: flex;
-  justify-content: center;
+export const Title = styled.p<ContainerProps>`
   align-items: center;
   padding-top: 20px;
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   text-align: center;
+  letter-spacing: 0.7rem;
+  line-height: 3rem;
 `;
 
 

@@ -120,8 +120,17 @@ export const ContainerItems = styled.div<ContainerProps>`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
   width: 100%;
+`;
+
+export const ItemImg = styled.img<ContainerProps>`
+  width: 300px;
+  height: 300px;
+  transition: 0.2s;
+
+  :hover {
+    transform: translate(10px, -10px);
+  }
 `;
 
 export const ContainerItem = styled.div<ContainerProps>`
@@ -133,28 +142,26 @@ export const ContainerItem = styled.div<ContainerProps>`
   max-width: 303px;
   min-height: 500px;
   max-height: 500px;
-  border-bottom: 5px solid black;
 `;
 
 export const ContainerInformations = styled.div<ContainerProps>`
   display: flex;
-  flex: 1;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  margin-top: 20px;
+  height: 100px;
+  width: 300px;
 `;
 
 export const ItemName = styled.p<ContainerProps>`
-  margin-bottom: 10px;
+  font-size: 1rem;
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
+  letter-spacing: 0.2rem;
+  line-height: 1.3rem;
 `;
 
 export const ItemPrice = styled.p<ContainerProps>`
-  font-size: 1rem;
+  font-size: 0.9rem;
   transition: 0.2s;
+  text-align: center;
 
   :hover {
     transform: scale(1.2);
@@ -166,41 +173,28 @@ export const ContainerButtons = styled.div<ContainerProps>`
   align-items: flex-end;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 15px;
+  border-bottom: 3px solid black;
+  margin-top: 1.5rem;
 `;
 
 export const ContainerDetails = styled.div<ContainerProps>`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   cursor: pointer;
-  border-radius: 5px;
-  height: 35px;
-  padding: 0px 5px;
-  transition: 0.3s;
+  transition: 0.2s;
 
   :hover {
-    background-color: #f34213;
+    transform: scale(1.2);
   }
 `;
 
-export const IconDetails = styled.img<ContainerProps>`
-  width: 20px;
-  margin-right: 5px;
-`;
-
 export const AddCarrinho = styled.div<ContainerProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
-  border-radius: 5px;
-  height: 35px;
-  padding: 0px 5px;
-  transition: 0.3s;
+  transition: 0.2s;
 
   :hover {
-    background-color: #f34213;
+    transform: scale(1.2);
   }
 `;
 

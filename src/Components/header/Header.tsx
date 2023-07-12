@@ -1,4 +1,9 @@
 import * as C from "./AppStyles";
+import user from '../../imgs/user.svg'
+import cart from '../../imgs/cart.svg'
+import logo from '../../imgs/logo.png'
+import info from '../../imgs/info.svg'
+import github from '../../imgs/github.svg'
 import { Context } from "../../Context/Context";
 import { useContext } from "react";
 
@@ -25,20 +30,22 @@ const Header = () => {
 
   return (
     <C.MainContainer>
-      <C.Container>
-        <C.Logo src={logo}></C.Logo>
+      <C.Container displayFlex alignItems="center">
+        <C.Logo src={logo} width="20px"></C.Logo>
+        <C.LogoText>Nerd Shop</C.LogoText>
       </C.Container>
 
       <C.Container displayFlex alignItems="center" justifyContent="center">
-        <C.ImgUser src={user}></C.ImgUser>
-        <C.ImgHearth src={hearth}></C.ImgHearth>
+        <C.ImgIcons src={info} width="50px"></C.ImgIcons>
+        <C.ImgIcons src={github} width="55px"></C.ImgIcons>
+        <C.ImgIcons src={user} width="57px"></C.ImgIcons>
 
         {state.cart.length ? (
           <C.ContainerCart onClick={hideOpenCarrinho}>
             <C.ContainerQtdItemsCart>
               <C.Text color="black">{state.cart.length}</C.Text>
             </C.ContainerQtdItemsCart>
-            <C.ImgCart src={cart}></C.ImgCart>
+            <C.ImgIcons src={cart} width="56px" ></C.ImgIcons>
           </C.ContainerCart>
         ) : null}
       </C.Container>

@@ -15,9 +15,9 @@ const Home = () => {
         <Header></Header>
 
         <C.MainContainerItems>
-          <C.TitleContainer>
-            <C.Text>Os melhores itens Geek você encontra aqui!</C.Text>
-          </C.TitleContainer>
+          
+            <C.Title>Os melhores itens Geek você encontra aqui!</C.Title>
+          
 
           <Items></Items>
 

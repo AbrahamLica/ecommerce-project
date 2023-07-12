@@ -1,6 +1,6 @@
 import * as C from "./AppStyles";
 import eye from "../../imgs/eye.svg";
-import cart from "../../imgs/cart.svg";
+import cartItems from "../../imgs/cartItems.png";
 import { useContext } from "react";
 import { Context } from "../../Context/Context";
 
@@ -20,31 +20,36 @@ const Items = () => {
   }
 
   return (
-    
     <C.ContainerItems>
       {state.shop.array.map((item, index) => (
         <C.ContainerItem key={index}>
-          <img src={require(`../../imgs/${item.src}`)} width={300} />
+          <C.ItemImg src={require(`../../imgs/${item.src}`)} />
 
           <C.ContainerInformations>
-            <C.ItemName>{item.name}</C.ItemName>
-            <C.ItemPrice>R$ {item.valor}</C.ItemPrice>
+            <C.Container
+              displayFlex
+              justifyContent="center"
+              alignItems="flex-start"
+              heigth="80%"
+              width="100%"
+            >
+              <C.ItemName>{item.name}</C.ItemName>
+            </C.Container>
+
+            <C.Container>
+              <C.ItemPrice>R$ {item.valor}</C.ItemPrice>
+            </C.Container>
           </C.ContainerInformations>
 
           <C.ContainerButtons>
-
             <C.ContainerDetails>
-              <C.IconDetails src={eye}></C.IconDetails>
-              <C.Text>Detalhes</C.Text>
+              <img src={eye} alt="" width={50} />
             </C.ContainerDetails>
 
             <C.AddCarrinho onClick={() => abrirCompra(index)}>
-              <img src={cart} alt="" width={20} />
-              <C.Text fontSize="17px">Add. ao Carrinho</C.Text>
+              <img src={cartItems} alt="" width={40} />
             </C.AddCarrinho>
-
           </C.ContainerButtons>
-
         </C.ContainerItem>
       ))}
     </C.ContainerItems>

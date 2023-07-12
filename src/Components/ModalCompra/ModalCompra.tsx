@@ -1,7 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context/Context";
 import * as C from "./AppStyles";
-
+import close from "../../imgs/close.png";
+import cartBig from "../../imgs/cartBig.png";
+import minus from "../../imgs/minus.png";
+import plus from "../../imgs/plus.png";
 
 const ModalCompra = () => {
   const { state, dispatch } = useContext(Context);
@@ -29,7 +32,6 @@ const ModalCompra = () => {
   }
 
   function adicionarAoCarrinho() {
-
     dispatch({
       type: "ADD_ITEM_TO_CART",
       payload: {
@@ -54,7 +56,6 @@ const ModalCompra = () => {
         openCart: true,
       },
     });
-
   }
 
   function fechaModal() {
@@ -70,19 +71,27 @@ const ModalCompra = () => {
     <C.ContainerModal>
       <C.Modal>
         <C.ContainerClose>
-          <img src={close} onClick={fechaModal} width={60} />
+          <C.IconClose src={close} onClick={fechaModal} />
         </C.ContainerClose>
 
         <img src={require(`../../imgs/${src}`)} alt="" width={230} />
 
-        <C.Name className="name">{name}</C.Name>
-        <C.Value className="valor">Valor unidade: R$ {valor}</C.Value>
-        <C.Value className="valor">Valor final: R$ {valorFinalFormatado}</C.Value>
+        <C.Name>{name}</C.Name>
+        <C.Value>Valor unidade:R$ {valor}</C.Value>
+        <C.Value>Valor final:R$ {valorFinalFormatado}</C.Value>
 
         <C.ContainerQt>
-          <C.Button onClick={removeQtd}>-</C.Button>
-          <C.Text margin="10px">{qtd}</C.Text>
-          <C.Button onClick={addQtd}>+</C.Button>
+          <C.Container onClick={removeQtd}>
+            <img src={minus} alt="" />
+          </C.Container>
+
+          <C.Text margin="10px" fontSize="0.7rem">
+            {qtd}
+          </C.Text>
+
+          <C.Container onClick={addQtd}>
+            <img src={plus} alt="" />
+          </C.Container>
         </C.ContainerQt>
 
         <C.ContainerButtons>
@@ -94,6 +103,7 @@ const ModalCompra = () => {
           >
             Add ao carrinho
           </C.Button>
+
           <C.Button
             fontSize="20px"
             padding="5px"
@@ -103,8 +113,6 @@ const ModalCompra = () => {
             Cancelar
           </C.Button>
         </C.ContainerButtons>
-
-        
       </C.Modal>
     </C.ContainerModal>
   );

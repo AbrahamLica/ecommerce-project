@@ -113,7 +113,7 @@ export const Link = styled.a<TextProps>`
   text-decoration: none;
 `;
 
-/////////////////////////// HOME ///////////////////////
+/////////////////////////// HEADER ///////////////////////
 
 export const MainContainer = styled.div<ContainerProps>`
   width: 100%;
@@ -124,10 +124,12 @@ export const MainContainer = styled.div<ContainerProps>`
   align-items: center;
 `;
 
-
-// #E6AF2E
-// #E0E2DB
-// #0B0A09
+export const LogoText = styled.p<ContainerProps>`
+  margin-left: 30px;
+  font-size: 30px;
+  color: #E6AF2E;
+  letter-spacing: 0.8rem;
+`;
 
 export const MainContainerItems = styled.div<ContainerProps>`
   background-color: white;
@@ -145,25 +147,21 @@ export const TitleContainer = styled.div<ContainerProps>`
 
 export const Logo = styled.img<ContainerProps>`
   margin-left: 20px;
-  width: 80px;
+  width: 65px;
+  height: 75px;
 `;
 
-export const ImgUser = styled.img<ContainerProps>`
-  width: 50px;
+export const ImgIcons = styled.img<ContainerProps>`
+  width: ${(props) => props.width};
+  height: ${(props) => props.heigth};
   margin-left: 20px;
-  margin-right: 20px;
-  cursor: pointer;
-`;
-
-export const ImgHearth = styled.img<ContainerProps>`
-  width: 50px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-right: 10px;
+  /* margin: ${(props) => props.margin}; */
+  padding: ${(props) => props.padding};
   cursor: pointer;
 `;
 
 export const ContainerCart = styled.div<ContainerProps>`
-  margin-left: 30px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -181,12 +179,10 @@ export const ContainerQtdItemsCart = styled.div<ContainerProps>`
   transform: translateX(22px);
 `;
 
-export const ImgCart = styled.img<ContainerProps>`
-  margin-left: 20px;
-  margin-right: 20px;
-  cursor: pointer;
-  width: 43px;
-`;
+// #E6AF2E
+// #E0E2DB
+// #0B0A09
+
 
 // @media (max-width: 425px) {
 //     .imgUser {
