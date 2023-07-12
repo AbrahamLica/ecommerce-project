@@ -163,6 +163,12 @@ export const ContainerClose = styled.div<ContainerProps>`
   justify-content: flex-end;
 `;
 
+export const ImgItem = styled.img<ContainerProps>`
+  border: 1px solid black;
+  box-shadow: 2px 2px 4px black;
+  width: 230px;
+`;
+
 export const Name = styled.p<ContainerProps>`
   font-size: 1.5rem;
   margin-top: 15px;
@@ -179,26 +185,31 @@ export const ContainerQt = styled.div<ContainerProps>`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 15px;
+`;
+
+export const ContainerButton = styled.div<ContainerProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  cursor: pointer;
 `;
 
 export const Button = styled.button<ContainerProps>`
-  color: ${(props) => props.color};
-  width: ${(props) => props.width};
-  height: ${(props) => props.heigth};
-  background-color: ${(props) => props.backgroundColor};
-  display: ${(props) => (props.displayFlex ? "flex" : "block")};
-  flex: ${(props) => props.flex};
-  flex-direction: ${(props) => (props.column ? "column" : "row")};
-  flex-wrap: ${(props) => props.flexWrap && "wrap"};
-  align-items: ${(props) => props.alignItems};
-  justify-content: ${(props) => props.justifyContent};
-  margin: ${(props) => props.margin};
-  padding: ${(props) => props.padding};
-  border: ${(props) => props.border};
-  border-radius: ${(props) => props.borderRadius};
-  cursor: ${(props) => (props.cursorPointer ? "pointer" : null)};
-  font-size: ${(props) => props.fontSize};
-  text-align: ${(props) => props.textAlign};
+  font-size: 20px;
+  padding: 8px;
+  margin: 0px 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: black;
+  cursor: pointer;
+  color: white;
+  transition: 0.4s;
+
+  :hover {
+    box-shadow: 5px 5px 13px black;
+  }
 `;
 
 export const ContainerButtons = styled.div<ContainerProps>`

@@ -81,31 +81,34 @@ const Carrinho = () => {
       {state.cart.map((item, index) => (
         <C.ItemsCart style={{ display: carrinhoAberto ? "flex" : "none" }}>
           <C.InformationsCartItem>
-            <C.ImgCartItem src={require(`../../imgs/${item.src}`)} />
+            <C.Container
+              width="100%"
+              displayFlex
+              column
+              alignItems="center"
+            >
+              <C.ImgCartItem src={require(`../../imgs/${item.src}`)} />
+              <C.Text textAlign="center">{item.itemName}</C.Text>
+            </C.Container>
 
-            <C.ContainerDescription>
-              <C.ItemName>{item.itemName}</C.ItemName>
-
-              <C.Container>
-                <C.Text fontSize="20px" textAlign="center">
-                  Quantidade: {item.qtdItem}
-                </C.Text>
-                <C.Text fontSize="20px" textAlign="center">
+            <C.Container width="100%">
+              <C.Container width="100%" margin="10px 0px">
+                <C.Text fontSize="0.9rem">Quantidade: {item.qtdItem}</C.Text>
+                <C.Text fontSize="0.9rem">
                   Valor unitário: R$ {item.valorUnidade}
                 </C.Text>
-                <C.Text fontSize="20px" textAlign="center">
+                <C.Text fontSize="0.9rem">
                   Valor final: R$ {item.valorTotal?.toFixed(2)}{" "}
                 </C.Text>
               </C.Container>
-            </C.ContainerDescription>
+            </C.Container>
           </C.InformationsCartItem>
         </C.ItemsCart>
       ))}
 
       <C.ContainerValues style={{ display: carrinhoAberto ? "block" : "none" }}>
-        <C.Container displayFlex justifyContent="space-around" width="100%">
-          <C.Text fontSize="20px">Total: </C.Text>
-          <C.Text fontSize="20px">R$ {valorTotal}</C.Text>
+        <C.Container width="100%">
+          <C.Text>Total: R$ {valorTotal}</C.Text>
         </C.Container>
       </C.ContainerValues>
 

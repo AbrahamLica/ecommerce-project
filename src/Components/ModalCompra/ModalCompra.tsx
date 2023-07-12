@@ -74,44 +74,32 @@ const ModalCompra = () => {
           <C.IconClose src={close} onClick={fechaModal} />
         </C.ContainerClose>
 
-        <img src={require(`../../imgs/${src}`)} alt="" width={230} />
+        <C.ImgItem src={require(`../../imgs/${src}`)}/>
 
         <C.Name>{name}</C.Name>
         <C.Value>Valor unidade:R$ {valor}</C.Value>
         <C.Value>Valor final:R$ {valorFinalFormatado}</C.Value>
 
         <C.ContainerQt>
-          <C.Container onClick={removeQtd}>
-            <img src={minus} alt="" />
-          </C.Container>
+          <C.ContainerButton onClick={removeQtd}>
+            <img src={minus} alt="" width={30} />
+          </C.ContainerButton>
 
           <C.Text margin="10px" fontSize="0.7rem">
             {qtd}
           </C.Text>
 
-          <C.Container onClick={addQtd}>
-            <img src={plus} alt="" />
-          </C.Container>
+          <C.ContainerButton onClick={addQtd}>
+            <img src={plus} alt="" width={30} />
+          </C.ContainerButton>
         </C.ContainerQt>
 
         <C.ContainerButtons>
-          <C.Button
-            fontSize="20px"
-            padding="5px"
-            margin="0px 10px"
-            onClick={adicionarAoCarrinho}
-          >
-            Add ao carrinho
+          <C.Button onClick={adicionarAoCarrinho}>
+            Adicionar ao carrinho
           </C.Button>
 
-          <C.Button
-            fontSize="20px"
-            padding="5px"
-            margin="0px 10px"
-            onClick={fechaModal}
-          >
-            Cancelar
-          </C.Button>
+          <C.Button onClick={fechaModal}>Cancelar</C.Button>
         </C.ContainerButtons>
       </C.Modal>
     </C.ContainerModal>

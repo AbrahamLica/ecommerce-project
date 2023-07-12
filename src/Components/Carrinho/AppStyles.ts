@@ -140,55 +140,31 @@ export const ImgClose = styled.img<ContainerProps>`
   cursor: pointer;
 `;
 
-
 export const ItemsCart = styled.div<ContainerProps>`
-  display: none;
-  padding: 10px;
   width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
   border-bottom: 5px solid black;
+  margin-bottom: 1rem;
 `;
 
 export const InformationsCartItem = styled.div<ContainerProps>`
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  margin-left: 5px;
-  padding: 10px;
   width: 100%;
 `;
 
 export const ImgCartItem = styled.img<ContainerProps>`
-  height: 100px;
-  max-width: 80px;
-`;
-
-export const ContainerDescription = styled.div<ContainerProps>`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-  justify-content: space-between;
-`;
-
-export const ItemName = styled.p<ContainerProps>`
-  font-weight: bold;
-  font-size: 19px;
-  text-align: center;
-  margin-bottom: 20px;
+  height: 120px;
+  max-width: 120px;
 `;
 
 export const ContainerValues = styled.p<ContainerProps>`
-  margin-top: 10px;
-  margin-bottom: 50px;
   width: 100%;
 `;
 
 export const ButtonFinish = styled.button<ContainerProps>`
-  width: 80%;
-  font-size: 30px;
+  font-size: 1.5rem;
   padding: 5px;
   border-radius: 10px;
   background-color: black;
@@ -196,6 +172,92 @@ export const ButtonFinish = styled.button<ContainerProps>`
   cursor: pointer;
   color: white;
   font-weight: bold;
+  transition: 0.4s;
+
+  :hover {
+    box-shadow: 5px 5px 13px black;
+  }
 `;
 
+// @media (max-width: 1024px) {
+//   .informationsItemCarrinho {
+//     flex-direction: column;
+//     align-items: center;
+//   }
 
+//   .nameItemCarrinho {
+//     font-size: 1.2rem;
+//     margin-bottom: 8px;
+//   }
+
+//   .imgItemCarrinho {
+//     margin-bottom: 10px;
+//   }
+
+//   .qtdItemCarrinho {
+//     margin-bottom: 8px;
+//   }
+
+//   .btnFinalizarAberto {
+//     width: 100%;
+//     font-size: 1.1rem;
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   .total h2 {
+//     font-size: 1.3rem;
+//   }
+// }
+
+// @media (max-width: 425px) {
+//   .total h2 {
+//     font-size: 1.1rem;
+//   }
+
+//   .containerCarrinhoFechado {
+//     display: none;
+//   }
+
+//   .containerCarrinhoAberto {
+//     z-index: 10;
+//     width: 100vw;
+//     position: fixed;
+//     height: 100%;
+//     padding: 5px;
+//   }
+
+//   .informationsItemCarrinho {
+//     flex-direction: row;
+//     padding: 4px;
+//     margin: 5px;
+//   }
+
+//   .nameItemCarrinho {
+//     font-size: 0.7rem;
+//   }
+
+//   .itemCarrinhoAberto {
+//     border-bottom: 2px solid black;
+//     padding: 0px;
+//     margin: 0;
+//   }
+
+//   .qtdItemCarrinho {
+//     font-size: 0.7rem;
+//     margin: 2px;
+//   }
+
+//   .valorItemCarrinho {
+//     font-size: 0.7rem;
+//   }
+
+//   .imgItemCarrinho {
+//     height: auto;
+//     width: 50px;
+//   }
+
+//   .closeImg {
+//     width: 30px;
+//   }
+// }
