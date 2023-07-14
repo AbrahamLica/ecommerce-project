@@ -156,9 +156,12 @@ export const ImgIcons = styled.img<ContainerProps>`
   height: ${(props) => props.heigth};
   margin-left: 20px;
   margin-right: 10px;
-  /* margin: ${(props) => props.margin}; */
   padding: ${(props) => props.padding};
   cursor: pointer;
+
+  :hover {
+    transform: scale(2);
+  }
 `;
 
 export const ContainerCart = styled.div<ContainerProps>`
