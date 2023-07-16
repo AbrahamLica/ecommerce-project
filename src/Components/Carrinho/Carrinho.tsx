@@ -21,15 +21,17 @@ const Carrinho = () => {
     } else if (state.shop.openCart == false) {
       setCarrinhoAberto(false);
     }
-  }, [valorTotal, state, carrinhoAberto]);
 
-  function calcular() {
-    var soma: any = 0;
-    for (let i = 0; i < state.cart.length; i++) {
-      soma += state.cart[i].valorTotal;
+    if (!state.cart.length && state.shop.openCart == true) {
+      setCarrinhoAberto(false);
+      dispatch({
+        type: "CLOSE_CART",
+        payload: {
+          openCart: false,
+        },
+      });
     }
-    setValorTotal(soma);
-  }
+  }, [valorTotal, state, carrinhoAberto, state.cart]);
 
   function closeCart() {
     dispatch({
@@ -66,6 +68,28 @@ const Carrinho = () => {
     }
   }
 
+  function excludeItem(name: any) {
+    dispatch({
+      type: "REMOVE_ITEM_FROM_CART",
+      payload: {
+        name: name,
+      },
+    });
+  }
+
+  function excludeAllItems() {
+    var confirm: any = confirm('Tem certeza que deseja excluir todos os itens do carrinho?')
+
+    if (confirm == true) {
+      dispatch({
+        type: 'RESET_CARRINHO'
+      })
+    } else {
+      
+    }
+    
+  }
+
   return (
     <C.ContainerCart
       style={{
@@ -99,7 +123,10 @@ const Carrinho = () => {
                   Valor final: R$ {item.valorTotal?.toFixed(2)}{" "}
                 </C.Text>
 
-                <C.IconDeleteItem src={bin} />
+                <C.IconDeleteItem
+                  src={bin}
+                  onClick={() => excludeItem(item.itemName)}
+                />
               </C.Container>
             </C.Container>
           </C.InformationsCartItem>
@@ -110,6 +137,11 @@ const Carrinho = () => {
         <C.Container width="100%">
           <C.Text>Total: R$ {valorTotal}</C.Text>
         </C.Container>
+
+        <C.IconDeleteItem
+          src={bin}
+          onClick={excludeAllItems}
+        />
       </C.ContainerValues>
 
       <C.ButtonFinish

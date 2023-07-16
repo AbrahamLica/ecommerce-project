@@ -196,7 +196,7 @@ export const ContainerButton = styled.div<ContainerProps>`
   cursor: pointer;
 `;
 
-export const Button = styled.button<ContainerProps>`
+export const Button = styled.div<ContainerProps>`
   font-size: 20px;
   padding: 8px;
   margin: 0px 10px;

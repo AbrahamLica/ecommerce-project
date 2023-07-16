@@ -36,6 +36,7 @@ export type InitialStateContextType = {
 //////////////////////////////////////////////////////
 
 export type ItemsCartReducerInitialStateType = {
+    name: any
     itemName?: string
     qtdItem?: number
     valorUnidade?: number

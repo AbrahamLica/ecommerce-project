@@ -64,26 +64,22 @@ export function reducerCart(
         valorUnidade: action.payload.valorUnidade,
         valorTotal: action.payload.valorTotal,
         src: action.payload.src,
+        name: undefined,
       });
       return newState;
       break;
 
-    case "REMOVE_ITEM_CART":
+    case "REMOVE_ITEM_FROM_CART":
       let newStatee = [...state];
-      newStatee.push({
-        itemName: action.payload.itemName,
-        qtdItem: action.payload.qtdItem,
-        valorUnidade: action.payload.valorUnidade,
-        valorTotal: action.payload.valorTotal,
-        src: action.payload.src,
-      });
+      newStatee = newStatee.filter(
+        (item) => item.itemName !== action.payload?.name
+      );
       return newStatee;
       break;
 
     case "RESET_CARRINHO":
       return ItemsCartReducerInitialState;
   }
-  
   return state;
 }
 
