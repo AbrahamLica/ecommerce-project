@@ -157,6 +157,18 @@ export const InformationsCartItem = styled.div<ContainerProps>`
 export const ImgCartItem = styled.img<ContainerProps>`
   height: 120px;
   max-width: 120px;
+  cursor: pointer;
+  border: 1px solid black;
+  transition: 0.4s;
+
+  :hover {
+    box-shadow: 2px 2px 5px black;
+  }
+`;
+
+export const IconDeleteItem = styled.img<ContainerProps>`
+  width: 40px;
+  cursor: pointer;
 `;
 
 export const ContainerValues = styled.p<ContainerProps>`

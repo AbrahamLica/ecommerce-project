@@ -118,7 +118,7 @@ export const Link = styled.a<TextProps>`
 export const MainContainer = styled.div<ContainerProps>`
   width: 100%;
   height: 15vh;
-  background-color: #0B0A09; 
+  background-color: #0b0a09;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -127,7 +127,7 @@ export const MainContainer = styled.div<ContainerProps>`
 export const LogoText = styled.p<ContainerProps>`
   margin-left: 30px;
   font-size: 30px;
-  color: #E6AF2E;
+  color: #e6af2e;
   letter-spacing: 0.8rem;
 `;
 
@@ -158,10 +158,24 @@ export const ImgIcons = styled.img<ContainerProps>`
   margin-right: 10px;
   padding: ${(props) => props.padding};
   cursor: pointer;
+  transition: 0.2s;
 
   :hover {
-    transform: scale(2);
+    transform: scale(1.2);
   }
+`;
+
+export const BannerHover = styled.div<ContainerProps>`
+  width: 200px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  height: 200px;
+  position: absolute;
+  top: 75px;
+  border: 1px solid black;
+  z-index: 99;
 `;
 
 export const ContainerCart = styled.div<ContainerProps>`
@@ -185,7 +199,6 @@ export const ContainerQtdItemsCart = styled.div<ContainerProps>`
 // #E6AF2E
 // #E0E2DB
 // #0B0A09
-
 
 // @media (max-width: 425px) {
 //     .imgUser {

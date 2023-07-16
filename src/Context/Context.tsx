@@ -22,7 +22,6 @@ export function reducerShop(
   state: ShopReducerInitialStateType,
   action: ActionType
 ) {
-    
   switch (action.type) {
     case "OPEN_MODAL":
       return {
@@ -69,9 +68,22 @@ export function reducerCart(
       return newState;
       break;
 
+    case "REMOVE_ITEM_CART":
+      let newStatee = [...state];
+      newStatee.push({
+        itemName: action.payload.itemName,
+        qtdItem: action.payload.qtdItem,
+        valorUnidade: action.payload.valorUnidade,
+        valorTotal: action.payload.valorTotal,
+        src: action.payload.src,
+      });
+      return newStatee;
+      break;
+
     case "RESET_CARRINHO":
       return ItemsCartReducerInitialState;
   }
+  
   return state;
 }
 

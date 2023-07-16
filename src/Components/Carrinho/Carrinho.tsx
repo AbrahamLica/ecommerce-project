@@ -1,5 +1,6 @@
 import * as C from "./AppStyles";
 import close from "../../imgs/close.png";
+import bin from "../../imgs/bin2.png";
 import { Context } from "../../Context/Context";
 import { useContext, useEffect, useState } from "react";
 
@@ -81,12 +82,7 @@ const Carrinho = () => {
       {state.cart.map((item, index) => (
         <C.ItemsCart style={{ display: carrinhoAberto ? "flex" : "none" }}>
           <C.InformationsCartItem>
-            <C.Container
-              width="100%"
-              displayFlex
-              column
-              alignItems="center"
-            >
+            <C.Container width="100%" displayFlex column alignItems="center">
               <C.ImgCartItem src={require(`../../imgs/${item.src}`)} />
               <C.Text textAlign="center">{item.itemName}</C.Text>
             </C.Container>
@@ -94,12 +90,16 @@ const Carrinho = () => {
             <C.Container width="100%">
               <C.Container width="100%" margin="10px 0px">
                 <C.Text fontSize="0.9rem">Quantidade: {item.qtdItem}</C.Text>
+
                 <C.Text fontSize="0.9rem">
                   Valor unitário: R$ {item.valorUnidade}
                 </C.Text>
+
                 <C.Text fontSize="0.9rem">
                   Valor final: R$ {item.valorTotal?.toFixed(2)}{" "}
                 </C.Text>
+
+                <C.IconDeleteItem src={bin} />
               </C.Container>
             </C.Container>
           </C.InformationsCartItem>
