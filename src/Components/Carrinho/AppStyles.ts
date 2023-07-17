@@ -146,6 +146,35 @@ export const ItemsCart = styled.div<ContainerProps>`
   margin-bottom: 1rem;
 `;
 
+export const ContainerModal = styled.div<ContainerProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 29%;
+  height: 100%;
+  position: fixed;
+  /* left: 0;
+  
+  bottom: 0;
+  right: 0; */
+  top: 0;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.322);
+  opacity: 1;
+  transition: all ease 0.5s;
+`;
+
+export const Modal = styled.div<ContainerProps>`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 50%;
+  height: 130px;
+  background-color: white;
+`;
+
 export const InformationsCartItem = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;

@@ -1,6 +1,8 @@
 import * as C from "./AppStyles";
 import close from "../../imgs/close.png";
 import bin from "../../imgs/bin2.png";
+import confirm from "../../imgs/confirm.png";
+import cancel from "../../imgs/cancel.png";
 import { Context } from "../../Context/Context";
 import { useContext, useEffect, useState } from "react";
 
@@ -8,6 +10,8 @@ const Carrinho = () => {
   const { state, dispatch } = useContext(Context);
   const [valorTotal, setValorTotal] = useState<any>();
   const [carrinhoAberto, setCarrinhoAberto] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [itemToExclude, setItemToExclude] = useState();
 
   useEffect(() => {
     var soma: any = 0;
@@ -68,35 +72,63 @@ const Carrinho = () => {
     }
   }
 
-  function excludeItem(name: any) {
+  function excludeItem() {
     dispatch({
       type: "REMOVE_ITEM_FROM_CART",
       payload: {
-        name: name,
+        name: itemToExclude,
       },
     });
+
+    setShowModal(false);
   }
 
   function excludeAllItems() {
-    var confirm: any = confirm('Tem certeza que deseja excluir todos os itens do carrinho?')
+    dispatch({
+      type: "RESET_CARRINHO",
+    });
+  }
 
-    if (confirm == true) {
-      dispatch({
-        type: 'RESET_CARRINHO'
-      })
-    } else {
-      
-    }
-    
+  function openModal(item: any) {
+    setShowModal(true);
+    setItemToExclude(item);
   }
 
   return (
     <C.ContainerCart
       style={{
         width: carrinhoAberto ? "40vw" : "0vw",
-        padding: carrinhoAberto ? "20px" : "0px",
+        padding: carrinhoAberto ? "20px" : "0px"
       }}
     >
+      {showModal && (
+        <C.ContainerModal
+          style={{
+            width: showModal ? "29%" : "0px",
+            padding: showModal ? "12px" : "0px"
+          }}
+        >
+          <C.Modal>
+            <C.Text textAlign="center">
+              Tem certeza que deseja excluir este item?
+            </C.Text>
+            <C.Container
+              displayFlex
+              alignItems="center"
+              justifyContent="space-around"
+              width="100%"
+            >
+              <C.Container cursorPointer onClick={excludeItem}>
+                <img src={confirm} alt="" width={35} />
+              </C.Container>
+
+              <C.Container cursorPointer onClick={() => setShowModal(false)}>
+                <img src={cancel} alt="" width={40} />
+              </C.Container>
+            </C.Container>
+          </C.Modal>
+        </C.ContainerModal>
+      )}
       <C.ContainerImgClose
         style={{ display: carrinhoAberto ? "flex" : "none" }}
       >
@@ -125,7 +157,7 @@ const Carrinho = () => {
 
                 <C.IconDeleteItem
                   src={bin}
-                  onClick={() => excludeItem(item.itemName)}
+                  onClick={() => openModal(item.itemName)}
                 />
               </C.Container>
             </C.Container>
@@ -138,10 +170,7 @@ const Carrinho = () => {
           <C.Text>Total: R$ {valorTotal}</C.Text>
         </C.Container>
 
-        <C.IconDeleteItem
-          src={bin}
-          onClick={excludeAllItems}
-        />
+        <C.IconDeleteItem src={bin} onClick={excludeAllItems} />
       </C.ContainerValues>
 
       <C.ButtonFinish
