@@ -27,15 +27,6 @@ export type ContainerProps = {
   textAlign?: string;
 };
 
-export type InputProps = {
-  color?: string;
-  bold?: boolean;
-  fontSize?: string;
-  width?: string;
-  backgroundColor?: string;
-  margin?: string;
-};
-
 export type TextProps = {
   color?: string;
   bold?: boolean;
@@ -47,30 +38,6 @@ export type TextProps = {
   borderRadius?: string;
   cursorPointer?: boolean;
   zIndex?: boolean;
-};
-
-export type ImgDetailsProps = {
-  ImgDetailsCharactersWidth?: boolean;
-  ImgDetailsCharactersHeight?: boolean;
-
-  ImgDetailsComicsWidth?: boolean;
-  ImgDetailsComicsHeight?: boolean;
-
-  ImgDetailsCreatorsWidth?: boolean;
-  ImgDetailsCreatorsHeight?: boolean;
-
-  ImgDetailsEventssWidth?: boolean;
-  ImgDetailsEventssHeight?: boolean;
-
-  ImgDetailsSeriesWidth?: boolean;
-  ImgDetailsSeriesHeight?: boolean;
-
-  ImgDetailsStoriesWidth?: boolean;
-  ImgDetailsStoriesHeight?: boolean;
-};
-
-export type MainContainerDetailsProps = {
-  background: any;
 };
 
 /////////////////////////// GENERAL ///////////////////////
@@ -164,17 +131,6 @@ export const ContainerModal = styled.div<ContainerProps>`
   transition: all ease 0.5s;
 `;
 
-export const Modal = styled.div<ContainerProps>`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  border: 1px solid black;
-  width: 50%;
-  height: 130px;
-  background-color: white;
-`;
-
 export const InformationsCartItem = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
@@ -218,6 +174,26 @@ export const ButtonFinish = styled.button<ContainerProps>`
   :hover {
     box-shadow: 5px 5px 13px black;
   }
+`;
+
+////////////////////////////// MODAL ///////////////////////////
+
+export const Modal = styled.div<ContainerProps>`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 50%;
+  height: 130px;
+  background-color: white;
+`;
+
+export const ContainerButtons = styled.div<ContainerProps>`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
 `;
 
 // @media (max-width: 1024px) {

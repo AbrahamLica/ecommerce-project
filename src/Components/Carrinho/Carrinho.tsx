@@ -11,6 +11,7 @@ const Carrinho = () => {
   const [valorTotal, setValorTotal] = useState<any>();
   const [carrinhoAberto, setCarrinhoAberto] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [excludeAll, setExludeAll] = useState(false);
   const [itemToExclude, setItemToExclude] = useState();
 
   useEffect(() => {
@@ -73,20 +74,26 @@ const Carrinho = () => {
   }
 
   function excludeItem() {
-    dispatch({
-      type: "REMOVE_ITEM_FROM_CART",
-      payload: {
-        name: itemToExclude,
-      },
-    });
+    if (excludeAll == true) {
+      dispatch({
+        type: "RESET_CARRINHO",
+      });
+      setExludeAll(false)
+    } else if (itemToExclude) {
+      dispatch({
+        type: "REMOVE_ITEM_FROM_CART",
+        payload: {
+          name: itemToExclude,
+        },
+      });
+    }
 
     setShowModal(false);
   }
 
   function excludeAllItems() {
-    dispatch({
-      type: "RESET_CARRINHO",
-    });
+    setShowModal(true);
+    setExludeAll(true);
   }
 
   function openModal(item: any) {
@@ -98,26 +105,23 @@ const Carrinho = () => {
     <C.ContainerCart
       style={{
         width: carrinhoAberto ? "40vw" : "0vw",
-        padding: carrinhoAberto ? "20px" : "0px"
+        padding: carrinhoAberto ? "20px" : "0px",
       }}
     >
       {showModal && (
         <C.ContainerModal
           style={{
             width: showModal ? "29%" : "0px",
-            padding: showModal ? "12px" : "0px"
+            padding: showModal ? "12px" : "0px",
           }}
         >
           <C.Modal>
-            <C.Text textAlign="center">
-              Tem certeza que deseja excluir este item?
+            <C.Text textAlign="center" fontSize="0.8rem">
+              {excludeAll
+                ? "Tem certeza que deseja excluir todos os items do carrinho?"
+                : "Tem certeza que deseja excluir este item?"}
             </C.Text>
-            <C.Container
-              displayFlex
-              alignItems="center"
-              justifyContent="space-around"
-              width="100%"
-            >
+            <C.ContainerButtons>
               <C.Container cursorPointer onClick={excludeItem}>
                 <img src={confirm} alt="" width={35} />
               </C.Container>
@@ -125,7 +129,7 @@ const Carrinho = () => {
               <C.Container cursorPointer onClick={() => setShowModal(false)}>
                 <img src={cancel} alt="" width={40} />
               </C.Container>
-            </C.Container>
+            </C.ContainerButtons>
           </C.Modal>
         </C.ContainerModal>
       )}
