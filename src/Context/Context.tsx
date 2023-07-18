@@ -16,6 +16,10 @@ export const ShopReducerInitialState: ShopReducerInitialStateType = {
   openCart: false,
   array: data,
   pos: 0,
+  name: '',
+  value: 0,
+  index: 0,
+  src: ''
 };
 
 export function reducerShop(
@@ -27,7 +31,10 @@ export function reducerShop(
       return {
         ...state,
         modalOpen: action.payload.modalOpen,
-        pos: action.payload.pos,
+        name: action.payload.name,
+        value: action.payload.value,
+        index: action.payload.index,
+        src: action.payload.src,
       };
       break;
 

@@ -1,45 +1,49 @@
 export type ShopReducerInitialStateType = {
-    modalOpen: boolean
-    openCart: boolean
-    array: DataType[]
-    pos: number
-}
-
-export type ActionType = {
-    type: string
-    payload: {
-        [key: string]: any;
-    }
-}
-
-export type ChildrenType = {
-    children: React.ReactNode
-}
+  modalOpen: boolean;
+  openCart: boolean;
+  array: DataType[];
+  pos: number;
+  name: string,
+  value: number,
+  index: number
+  src: string
+};
 
 export type DataType = {
-    id: number
-    name: string
-    src: any 
-    valor: number
-}
+  id: number;
+  name: string;
+  src: any;
+  valor: number;
+};
+
+export type ActionType = {
+  type: string;
+  payload: {
+    [key: string]: any;
+  };
+};
+
+export type ChildrenType = {
+  children: React.ReactNode;
+};
 
 export type ContextType = {
-    state: InitialStateContextType;
-    dispatch: React.Dispatch<any>;
-}
+  state: InitialStateContextType;
+  dispatch: React.Dispatch<any>;
+};
 
 export type InitialStateContextType = {
-    shop: ShopReducerInitialStateType
-    cart: ItemsCartReducerInitialStateType[]
-}
+  shop: ShopReducerInitialStateType;
+  cart: ItemsCartReducerInitialStateType[];
+};
 
 //////////////////////////////////////////////////////
 
 export type ItemsCartReducerInitialStateType = {
-    name: any
-    itemName?: string
-    qtdItem?: number
-    valorUnidade?: number
-    valorTotal?: number
-    src?: string
-}
+  name: any;
+  itemName?: string;
+  qtdItem?: number;
+  valorUnidade?: number;
+  valorTotal?: number;
+  src?: string;
+};

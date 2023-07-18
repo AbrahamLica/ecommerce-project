@@ -8,18 +8,19 @@ import plus from "../../imgs/plus.png";
 
 const ModalCompra = () => {
   const { state, dispatch } = useContext(Context);
-  const [name, setName] = useState(state.shop.array[state.shop.pos].name);
-  const [src, setSrc] = useState(state.shop.array[state.shop.pos].src);
-  const [valor, setValor] = useState(state.shop.array[state.shop.pos].valor);
+  // const [id, setId] = useState();
+  // const [name, setName] = useState(state.shop.array[state.shop.pos].name);
+  // const [src, setSrc] = useState(state.shop.array[state.shop.pos].src);
+  const [value, setValue] = useState(state.shop.value);
   const [qtd, setQtd] = useState(1);
   const [valorFinal, setValorFinal] = useState<number>();
   const [valorFinalFormatado, setValorFinalFormatado] = useState<any>();
 
   useEffect(() => {
-    let resultado: number = qtd * valor;
+    let resultado: number = qtd * value;
     setValorFinal(resultado);
     setValorFinalFormatado(valorFinal?.toFixed(2));
-  }, [qtd, valor, valorFinal, valorFinalFormatado]);
+  }, [qtd, value, valorFinal, valorFinalFormatado]);
 
   function addQtd() {
     setQtd(qtd + 1);
@@ -35,11 +36,11 @@ const ModalCompra = () => {
     dispatch({
       type: "ADD_ITEM_TO_CART",
       payload: {
-        itemName: name,
+        itemName: state.shop.name,
         qtdItem: qtd,
-        valorUnidade: valor,
+        valorUnidade: state.shop.value,
         valorTotal: valorFinal,
-        src: src,
+        src: state.shop.src,
       },
     });
 
@@ -56,6 +57,8 @@ const ModalCompra = () => {
         openCart: true,
       },
     });
+
+  console.log(state.shop)
   }
 
   function fechaModal() {
@@ -65,6 +68,8 @@ const ModalCompra = () => {
         modalOpen: false,
       },
     });
+
+ 
   }
 
   return (
@@ -74,10 +79,10 @@ const ModalCompra = () => {
           <C.IconClose src={close} onClick={fechaModal} />
         </C.ContainerClose>
 
-        <C.ImgItem src={require(`../../imgs/${src}`)}/>
+        <C.ImgItem src={require(`../../imgs/${state.shop.src}`)} />
 
-        <C.Name>{name}</C.Name>
-        <C.Value>Valor unidade:R$ {valor}</C.Value>
+        <C.Name>{state.shop.name}</C.Name>
+        <C.Value>Valor unidade:R$ {state.shop.value}</C.Value>
         <C.Value>Valor final:R$ {valorFinalFormatado}</C.Value>
 
         <C.ContainerQt>

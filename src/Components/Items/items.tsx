@@ -7,16 +7,17 @@ import { Context } from "../../Context/Context";
 const Items = () => {
   const { state, dispatch } = useContext(Context);
 
-  function abrirCompra(index) {
+  function abrirCompra(name: string, value: number, index:number, src: any) {
     dispatch({
       type: "OPEN_MODAL",
       payload: {
         modalOpen: true,
-        pos: index,
+        name: name,
+        value: value,
+        index: index,
+        src: src
       },
     });
-
-    console.log(state.shop);
   }
 
   return (
@@ -46,9 +47,10 @@ const Items = () => {
               <img src={eye} alt="" width={50} />
             </C.ContainerDetails>
 
-            <C.AddCarrinho onClick={() => abrirCompra(index)}>
+            <C.AddCarrinho onClick={() => abrirCompra(item.name, item.valor, index, item.src)}>
               <img src={cartItems} alt="" width={40} />
             </C.AddCarrinho>
+
           </C.ContainerButtons>
         </C.ContainerItem>
       ))}
