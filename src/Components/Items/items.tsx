@@ -7,15 +7,28 @@ import { Context } from "../../Context/Context";
 const Items = () => {
   const { state, dispatch } = useContext(Context);
 
-  function abrirCompra(name: string, value: number, index:number, src: any) {
+  function abrirCompra(name: string, value: number, index: number, src: any) {
+    var id = Math.random();
+
     dispatch({
       type: "OPEN_MODAL",
       payload: {
         modalOpen: true,
+        id: id,
         name: name,
         value: value,
         index: index,
-        src: src
+        src: src,
+      },
+    });
+  }
+
+  function openDetail(src: string) {
+    dispatch({
+      type: "OPEN_MODAL_DETAILS",
+      payload: {
+        modalDetailOpen: true,
+        src: src,
       },
     });
   }
@@ -43,14 +56,17 @@ const Items = () => {
           </C.ContainerInformations>
 
           <C.ContainerButtons>
-            <C.ContainerDetails>
+            <C.ContainerDetails onClick={() => openDetail(item.src)}>
               <img src={eye} alt="" width={50} />
             </C.ContainerDetails>
 
-            <C.AddCarrinho onClick={() => abrirCompra(item.name, item.valor, index, item.src)}>
+            <C.AddCarrinho
+              onClick={() =>
+                abrirCompra(item.name, item.valor, index, item.src)
+              }
+            >
               <img src={cartItems} alt="" width={40} />
             </C.AddCarrinho>
-
           </C.ContainerButtons>
         </C.ContainerItem>
       ))}

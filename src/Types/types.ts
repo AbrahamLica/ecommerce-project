@@ -1,8 +1,10 @@
 export type ShopReducerInitialStateType = {
   modalOpen: boolean;
+  modalDetailOpen: boolean;
   openCart: boolean;
   array: DataType[];
   pos: number;
+  id: number;
   name: string,
   value: number,
   index: number
@@ -40,9 +42,10 @@ export type InitialStateContextType = {
 //////////////////////////////////////////////////////
 
 export type ItemsCartReducerInitialStateType = {
+  id: number;
   name: any;
   itemName?: string;
-  qtdItem?: number;
+  qtdItem?: any;
   valorUnidade?: number;
   valorTotal?: number;
   src?: string;

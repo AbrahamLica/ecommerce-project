@@ -196,6 +196,23 @@ export const ContainerButtons = styled.div<ContainerProps>`
   width: 100%;
 `;
 
+////////////////////////////// BUTTONS ///////////////////////////
+
+export const ContainerButton = styled.div<ContainerProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  cursor: pointer;
+`;
+
+export const ContainerQt = styled.div<ContainerProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+`;
+
 // @media (max-width: 1024px) {
 //   .informationsItemCarrinho {
 //     flex-direction: column;

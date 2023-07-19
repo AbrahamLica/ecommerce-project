@@ -49,29 +49,6 @@ export type TextProps = {
   zIndex?: boolean;
 };
 
-export type ImgDetailsProps = {
-  ImgDetailsCharactersWidth?: boolean;
-  ImgDetailsCharactersHeight?: boolean;
-
-  ImgDetailsComicsWidth?: boolean;
-  ImgDetailsComicsHeight?: boolean;
-
-  ImgDetailsCreatorsWidth?: boolean;
-  ImgDetailsCreatorsHeight?: boolean;
-
-  ImgDetailsEventssWidth?: boolean;
-  ImgDetailsEventssHeight?: boolean;
-
-  ImgDetailsSeriesWidth?: boolean;
-  ImgDetailsSeriesHeight?: boolean;
-
-  ImgDetailsStoriesWidth?: boolean;
-  ImgDetailsStoriesHeight?: boolean;
-};
-
-export type MainContainerDetailsProps = {
-  background: any;
-};
 
 /////////////////////////// GENERAL ///////////////////////
 
@@ -144,122 +121,14 @@ export const Modal = styled.div<ContainerProps>`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 30px;
-  /* height: 400px; */
+  padding: 1rem;
   background-color: white;
   min-width: 35vw;
   z-index: 10;
   border-radius: 20px;
 `;
 
-export const IconClose = styled.img<ContainerProps>`
-  width: 60px;
-  cursor: pointer;
-`;
 
-export const ContainerClose = styled.div<ContainerProps>`
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-`;
-
-export const ImgItem = styled.img<ContainerProps>`
-  border: 1px solid black;
-  box-shadow: 2px 2px 4px black;
-  width: 230px;
-`;
-
-export const Name = styled.p<ContainerProps>`
-  font-size: 1.5rem;
-  margin-top: 15px;
-  text-align: center;
-`;
-
-export const Value = styled.p<ContainerProps>`
-  font-size: 1rem;
-  margin-top: 10px;
-  margin-bottom: 10px;
-`;
-
-export const ContainerQt = styled.div<ContainerProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 15px;
-`;
-
-export const ContainerButton = styled.div<ContainerProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid black;
-  cursor: pointer;
-`;
-
-export const Button = styled.div<ContainerProps>`
-  font-size: 1rem;
-  padding: 8px;
-  margin: 0px 10px;
-  border-radius: 10px;
-  border: none;
-  background-color: black;
-  cursor: pointer;
-  color: white;
-  transition: 0.4s;
-
-  :hover {
-    box-shadow: 5px 5px 13px black;
-  }
-`;
-
-export const ContainerButtons = styled.div<ContainerProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-`;
-
-// @media (max-width: 768px) {
-//     .modal {
-//       width: 70vw;
-//       padding: 20px;
-//     }
-//   }
-
-//   @media (max-width: 425px) {
-//     .imgItem {
-//       max-width: 200px;
-//     }
-
-//     .modal {
-//       width: 70vw;
-//       padding: 5px;
-//     }
-
-//     .name {
-//       font-size: 1.2rem;
-//     }
-
-//     .valor {
-//       font-size: 1.2rem;
-//       margin: 0;
-//     }
-
-//     .containerButtons {
-//       flex-direction: column;
-//       margin-top: 5px;
-//     }
-
-//     .containerButtons button {
-//       margin-bottom: 10px;
-//       margin-left: 0;
-//     }
-
-//     .btnCancelar {
-//       display: none;
-//     }
-
-//   }
 
 // #B3001B
 // #255C99

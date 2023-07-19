@@ -13,13 +13,15 @@ import { data } from "../Data/data";
 
 export const ShopReducerInitialState: ShopReducerInitialStateType = {
   modalOpen: false,
+  modalDetailOpen: false,
   openCart: false,
   array: data,
   pos: 0,
-  name: '',
+  id: 0,
+  name: "",
   value: 0,
   index: 0,
-  src: ''
+  src: "",
 };
 
 export function reducerShop(
@@ -31,10 +33,26 @@ export function reducerShop(
       return {
         ...state,
         modalOpen: action.payload.modalOpen,
+        id: action.payload.id,
         name: action.payload.name,
         value: action.payload.value,
         index: action.payload.index,
         src: action.payload.src,
+      };
+      break;
+
+    case "OPEN_MODAL_DETAILS":
+      return {
+        ...state,
+        modalDetailOpen: action.payload.modalDetailOpen,
+        src: action.payload.src,
+      };
+      break;
+
+    case "CLOSE_MODAL_DETAILS":
+      return {
+        ...state,
+        modalDetailOpen: action.payload.modalDetailOpen,
       };
       break;
 
@@ -66,6 +84,7 @@ export function reducerCart(
     case "ADD_ITEM_TO_CART":
       let newState = [...state];
       newState.push({
+        id: action.payload.id,
         itemName: action.payload.itemName,
         qtdItem: action.payload.qtdItem,
         valorUnidade: action.payload.valorUnidade,
@@ -78,14 +97,18 @@ export function reducerCart(
 
     case "REMOVE_ITEM_FROM_CART":
       let newStatee = [...state];
-      newStatee = newStatee.filter(
-        (item) => item.itemName !== action.payload?.name
-      );
+      newStatee = newStatee.filter((item) => item.id !== action.payload?.id);
       return newStatee;
       break;
 
     case "RESET_CARRINHO":
       return ItemsCartReducerInitialState;
+
+    case "DECREASE_QT":
+      let newStateee = [...state];
+      newStateee[action.payload.pos].qtdItem = action.payload.qtdItem;
+      return newStateee;
+      break;
   }
   return state;
 }

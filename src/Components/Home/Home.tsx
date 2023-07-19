@@ -3,6 +3,7 @@ import { Context } from "../../Context/Context";
 import Header from "../header/Header";
 import Items from "../Items/items";
 import ModalCompra from "../ModalCompra/ModalCompra";
+import ModalDetail from "../ModalDetail/ModalDetail";
 import Carrinho from "../Carrinho/Carrinho";
 import * as C from "./AppStyles";
 
@@ -15,13 +16,12 @@ const Home = () => {
         <Header></Header>
 
         <C.MainContainerItems>
-          
-            <C.Title>Os melhores itens Geek você encontra aqui!</C.Title>
-          
+          <C.Title>Os melhores itens Geek você encontra aqui!</C.Title>
 
           <Items></Items>
 
           {state.shop.modalOpen ? <ModalCompra></ModalCompra> : null}
+          {state.shop.modalDetailOpen ? <ModalDetail></ModalDetail> : null}
         </C.MainContainerItems>
 
         <C.Container padding="10px">

@@ -8,9 +8,6 @@ import plus from "../../imgs/plus.png";
 
 const ModalCompra = () => {
   const { state, dispatch } = useContext(Context);
-  // const [id, setId] = useState();
-  // const [name, setName] = useState(state.shop.array[state.shop.pos].name);
-  // const [src, setSrc] = useState(state.shop.array[state.shop.pos].src);
   const [value, setValue] = useState(state.shop.value);
   const [qtd, setQtd] = useState(1);
   const [valorFinal, setValorFinal] = useState<number>();
@@ -36,6 +33,7 @@ const ModalCompra = () => {
     dispatch({
       type: "ADD_ITEM_TO_CART",
       payload: {
+        id: state.shop.id,
         itemName: state.shop.name,
         qtdItem: qtd,
         valorUnidade: state.shop.value,
@@ -57,8 +55,6 @@ const ModalCompra = () => {
         openCart: true,
       },
     });
-
-  console.log(state.shop)
   }
 
   function fechaModal() {
@@ -68,8 +64,6 @@ const ModalCompra = () => {
         modalOpen: false,
       },
     });
-
- 
   }
 
   return (

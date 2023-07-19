@@ -3,6 +3,8 @@ import close from "../../imgs/close.png";
 import bin from "../../imgs/bin2.png";
 import confirm from "../../imgs/confirm.png";
 import cancel from "../../imgs/cancel.png";
+import minus from "../../imgs/minus.png";
+import plus from "../../imgs/plus.png";
 import { Context } from "../../Context/Context";
 import { useContext, useEffect, useState } from "react";
 
@@ -13,6 +15,7 @@ const Carrinho = () => {
   const [showModal, setShowModal] = useState(false);
   const [excludeAll, setExludeAll] = useState(false);
   const [itemToExclude, setItemToExclude] = useState();
+  const [qtd, setQtd] = useState();
 
   useEffect(() => {
     var soma: any = 0;
@@ -78,12 +81,12 @@ const Carrinho = () => {
       dispatch({
         type: "RESET_CARRINHO",
       });
-      setExludeAll(false)
+      setExludeAll(false);
     } else if (itemToExclude) {
       dispatch({
         type: "REMOVE_ITEM_FROM_CART",
         payload: {
-          name: itemToExclude,
+          id: itemToExclude,
         },
       });
     }
@@ -96,9 +99,25 @@ const Carrinho = () => {
     setExludeAll(true);
   }
 
-  function openModal(item: any) {
+  function openModal(id: any) {
     setShowModal(true);
-    setItemToExclude(item);
+    setItemToExclude(id);
+  }
+
+  function addQtd() {
+    // setQtd(qtd + 1);
+  }
+
+  function removeQtd(index: number) {
+
+
+    dispatch({
+      type: "DECREASE_QT",
+      payload: {
+        pos: index,
+        qtdItem: state.cart[index].qtdItem - 1,
+      },
+    });
   }
 
   return (
@@ -149,7 +168,22 @@ const Carrinho = () => {
 
             <C.Container width="100%">
               <C.Container width="100%" margin="10px 0px">
-                <C.Text fontSize="0.9rem">Quantidade: {item.qtdItem}</C.Text>
+                <C.ContainerQt>
+                  <C.ContainerButton
+                    key={index}
+                    onClick={() => removeQtd(index)}
+                  >
+                    <img src={minus} alt="" width={30} />
+                  </C.ContainerButton>
+
+                  {/* <C.Text>Quantidade:</C.Text> */}
+
+                  <C.Text fontSize="0.9rem">{item.qtdItem}</C.Text>
+
+                  <C.ContainerButton onClick={addQtd}>
+                    <img src={plus} alt="" width={30} />
+                  </C.ContainerButton>
+                </C.ContainerQt>
 
                 <C.Text fontSize="0.9rem">
                   Valor unitário: R$ {item.valorUnidade}
@@ -161,7 +195,8 @@ const Carrinho = () => {
 
                 <C.IconDeleteItem
                   src={bin}
-                  onClick={() => openModal(item.itemName)}
+                  // onClick={() => openModal(item.id)}
+                  onClick={() => console.log(state.cart)}
                 />
               </C.Container>
             </C.Container>
