@@ -46,7 +46,7 @@ export type ItemsCartReducerInitialStateType = {
   name: any;
   itemName?: string;
   qtdItem?: any;
-  valorUnidade?: number;
+  valorUnidade?: any;
   valorTotal?: number;
   src?: string;
 };

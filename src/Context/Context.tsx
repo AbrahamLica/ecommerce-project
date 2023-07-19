@@ -109,6 +109,18 @@ export function reducerCart(
       newStateee[action.payload.pos].qtdItem = action.payload.qtdItem;
       return newStateee;
       break;
+
+    case "INCREASE_QT":
+      let newStateeee = [...state];
+      newStateeee[action.payload.pos].qtdItem = action.payload.qtdItem;
+      return newStateeee;
+      break;
+
+    case "RECALC":
+      let newStateeeee = [...state];
+      newStateeeee[action.payload.pos].valorTotal = action.payload.valorTotal;
+      return newStateeeee;
+      break;
   }
   return state;
 }

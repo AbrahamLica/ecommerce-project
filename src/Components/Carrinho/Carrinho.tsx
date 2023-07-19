@@ -10,36 +10,27 @@ import { useContext, useEffect, useState } from "react";
 
 const Carrinho = () => {
   const { state, dispatch } = useContext(Context);
-  const [valorTotal, setValorTotal] = useState<any>();
-  const [carrinhoAberto, setCarrinhoAberto] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [excludeAll, setExludeAll] = useState(false);
+  const [valorTotal, setValorTotal] = useState<number>();
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [excludeAll, setExludeAll] = useState<boolean>(false);
   const [itemToExclude, setItemToExclude] = useState();
-  const [qtd, setQtd] = useState();
+  const [teste, setTeste] = useState<number>(1);
 
   useEffect(() => {
-    var soma: any = 0;
+    let valor = 0;
     for (let i = 0; i < state.cart.length; i++) {
-      soma += state.cart[i].valorTotal;
-    }
-    setValorTotal(soma.toFixed(2));
-
-    if (state.shop.openCart == true) {
-      setCarrinhoAberto(true);
-    } else if (state.shop.openCart == false) {
-      setCarrinhoAberto(false);
-    }
-
-    if (!state.cart.length && state.shop.openCart == true) {
-      setCarrinhoAberto(false);
+      valor = state.cart[i].qtdItem * state.cart[i].valorUnidade;
       dispatch({
-        type: "CLOSE_CART",
+        type: "RECALC",
         payload: {
-          openCart: false,
+          pos: i,
+          valorTotal: valor,
         },
       });
     }
-  }, [valorTotal, state, carrinhoAberto, state.cart]);
+
+    calcTotalValue();
+  }, [state.shop.openCart, teste, valorTotal, state.cart.length]);
 
   function closeCart() {
     dispatch({
@@ -55,7 +46,7 @@ const Carrinho = () => {
 
     alert("Obrigado pela preferência!");
 
-    setCarrinhoAberto(false);
+    console.log(state.shop);
   }
 
   function hideOpenCarrinho() {
@@ -81,8 +72,27 @@ const Carrinho = () => {
       dispatch({
         type: "RESET_CARRINHO",
       });
+      dispatch({
+        type: "CLOSE_CART",
+        payload: {
+          openCart: false,
+        },
+      });
       setExludeAll(false);
-    } else if (itemToExclude) {
+    } else if (itemToExclude && state.cart.length == 1) {
+      dispatch({
+        type: "REMOVE_ITEM_FROM_CART",
+        payload: {
+          id: itemToExclude,
+        },
+      });
+      dispatch({
+        type: "CLOSE_CART",
+        payload: {
+          openCart: false,
+        },
+      });
+    } else {
       dispatch({
         type: "REMOVE_ITEM_FROM_CART",
         payload: {
@@ -104,27 +114,51 @@ const Carrinho = () => {
     setItemToExclude(id);
   }
 
-  function addQtd() {
-    // setQtd(qtd + 1);
+  function decreaseQtd(index: number) {
+    if (state.cart[index].qtdItem > 1) {
+      dispatch({
+        type: "DECREASE_QT",
+        payload: {
+          pos: index,
+          qtdItem: state.cart[index].qtdItem - 1,
+        },
+      });
+    }
+    setTeste(teste + 1);
+
+    setTimeout(() => {
+      calcTotalValue();
+    }, 100);
   }
 
-  function removeQtd(index: number) {
-
-
+  function increaseQtd(index: number) {
     dispatch({
-      type: "DECREASE_QT",
+      type: "INCREASE_QT",
       payload: {
         pos: index,
-        qtdItem: state.cart[index].qtdItem - 1,
+        qtdItem: state.cart[index].qtdItem + 1,
       },
     });
+    setTeste(teste + 1);
+
+    setTimeout(() => {
+      calcTotalValue();
+    }, 100);
+  }
+
+  function calcTotalValue() {
+    var soma: any = 0;
+    for (let i = 0; i < state.cart.length; i++) {
+      soma += state.cart[i].valorTotal;
+    }
+    setValorTotal(soma.toFixed(2));
   }
 
   return (
     <C.ContainerCart
       style={{
-        width: carrinhoAberto ? "40vw" : "0vw",
-        padding: carrinhoAberto ? "20px" : "0px",
+        width: state.shop.openCart ? "40vw" : "0vw",
+        padding: state.shop.openCart ? "20px" : "0px",
       }}
     >
       {showModal && (
@@ -153,13 +187,13 @@ const Carrinho = () => {
         </C.ContainerModal>
       )}
       <C.ContainerImgClose
-        style={{ display: carrinhoAberto ? "flex" : "none" }}
+        style={{ display: state.shop.openCart ? "flex" : "none" }}
       >
         <C.ImgClose src={close} onClick={hideOpenCarrinho} />
       </C.ContainerImgClose>
 
       {state.cart.map((item, index) => (
-        <C.ItemsCart style={{ display: carrinhoAberto ? "flex" : "none" }}>
+        <C.ItemsCart style={{ display: state.shop.openCart ? "flex" : "none" }}>
           <C.InformationsCartItem>
             <C.Container width="100%" displayFlex column alignItems="center">
               <C.ImgCartItem src={require(`../../imgs/${item.src}`)} />
@@ -168,52 +202,61 @@ const Carrinho = () => {
 
             <C.Container width="100%">
               <C.Container width="100%" margin="10px 0px">
-                <C.ContainerQt>
-                  <C.ContainerButton
-                    key={index}
-                    onClick={() => removeQtd(index)}
-                  >
-                    <img src={minus} alt="" width={30} />
-                  </C.ContainerButton>
-
-                  {/* <C.Text>Quantidade:</C.Text> */}
-
-                  <C.Text fontSize="0.9rem">{item.qtdItem}</C.Text>
-
-                  <C.ContainerButton onClick={addQtd}>
-                    <img src={plus} alt="" width={30} />
-                  </C.ContainerButton>
-                </C.ContainerQt>
-
                 <C.Text fontSize="0.9rem">
                   Valor unitário: R$ {item.valorUnidade}
                 </C.Text>
 
                 <C.Text fontSize="0.9rem">
-                  Valor final: R$ {item.valorTotal?.toFixed(2)}{" "}
+                  Valor final: R$ {item.valorTotal?.toFixed(2)}
                 </C.Text>
 
-                <C.IconDeleteItem
-                  src={bin}
-                  // onClick={() => openModal(item.id)}
-                  onClick={() => console.log(state.cart)}
-                />
+                <C.Container
+                  width="100%"
+                  displayFlex
+                  alignItems="center"
+                  justifyContent="space-between"
+                >
+                  <C.IconDeleteItem
+                    src={bin}
+                    onClick={() => openModal(item.id)}
+                  />
+
+                  <C.ContainerQt>
+                    <C.ContainerButton onClick={() => decreaseQtd(index)}>
+                      <img src={minus} alt="" width={30} />
+                    </C.ContainerButton>
+
+                    <C.Text fontSize="0.9rem" margin="0px 5px 0px 5px">
+                      {item.qtdItem}
+                    </C.Text>
+
+                    <C.ContainerButton
+                      key={index}
+                      onClick={() => increaseQtd(index)}
+                    >
+                      <img src={plus} alt="" width={30} />
+                    </C.ContainerButton>
+                  </C.ContainerQt>
+                </C.Container>
               </C.Container>
             </C.Container>
           </C.InformationsCartItem>
         </C.ItemsCart>
       ))}
 
-      <C.ContainerValues style={{ display: carrinhoAberto ? "block" : "none" }}>
+      <C.Container
+        width="100%"
+        style={{ display: state.shop.openCart ? "block" : "none" }}
+      >
         <C.Container width="100%">
           <C.Text>Total: R$ {valorTotal}</C.Text>
         </C.Container>
 
         <C.IconDeleteItem src={bin} onClick={excludeAllItems} />
-      </C.ContainerValues>
+      </C.Container>
 
       <C.ButtonFinish
-        style={{ display: carrinhoAberto ? "block" : "none" }}
+        style={{ display: state.shop.openCart ? "block" : "none" }}
         onClick={closeCart}
       >
         Finalizar Compra

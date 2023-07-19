@@ -152,12 +152,9 @@ export const ImgCartItem = styled.img<ContainerProps>`
 `;
 
 export const IconDeleteItem = styled.img<ContainerProps>`
+  height: 40px;
   width: 40px;
   cursor: pointer;
-`;
-
-export const ContainerValues = styled.p<ContainerProps>`
-  width: 100%;
 `;
 
 export const ButtonFinish = styled.button<ContainerProps>`
