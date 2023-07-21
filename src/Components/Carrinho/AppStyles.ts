@@ -40,6 +40,11 @@ export type TextProps = {
   zIndex?: boolean;
 };
 
+export type ContainerCart = {
+  width?: string;
+  heigth?: string;
+};
+
 /////////////////////////// GENERAL ///////////////////////
 
 export const Container = styled.div<ContainerProps>`
@@ -89,12 +94,28 @@ export const Link = styled.a<TextProps>`
 
 /////////////////////////// ITEMS ///////////////////////
 
-export const ContainerCart = styled.div<ContainerProps>`
+export const ContainerCart = styled.div<ContainerCart>`
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: all ease 0.2s;
+  width: ${(props) => (props.width == 'cartopen' ? "40vw" : "0vw")};
+
+  @media (max-width: 425px) {
+    width: ${(props) => (props.width == 'cartopen' ? "100vw" : "0vw")};
+    height: ${(props) => (props.width == 'cartopen' ? "100vh" : "0vh")};
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    overflow-x: hidden;
+    background-color: white;
+    opacity: 1;
+    transition: all ease 0.5s;
+    z-index: 99;
+  }
 `;
 
 export const ContainerImgClose = styled.div<ContainerProps>`
@@ -188,7 +209,6 @@ export const Modal = styled.div<ContainerProps>`
   @media (max-width: 1024px) {
     width: 80%;
   }
-
 `;
 
 export const ContainerButtons = styled.div<ContainerProps>`

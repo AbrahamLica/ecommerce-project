@@ -147,7 +147,7 @@ const Header = () => {
         </C.ContainerMenu>
       </C.ContainerHeader>
 
-      <C.ContainerIcons width={state.cart.length ? "50%" : "30%"}>
+      <C.ContainerIcons>
         <C.BannerHover
           style={{
             display: infoHover ? "flex" : "none",
@@ -172,7 +172,10 @@ const Header = () => {
         ></C.IconGithub>
 
         {state.cart.length ? (
-          <C.ContainerCart onClick={hideOpenCarrinho}>
+          <C.ContainerCart
+            onClick={hideOpenCarrinho}
+            width={state.cart.length ? "50%" : "0"}
+          >
             <C.ContainerQtdItemsCart>
               <C.Text color="black">{state.cart.length}</C.Text>
             </C.ContainerQtdItemsCart>

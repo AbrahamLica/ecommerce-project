@@ -130,7 +130,6 @@ export const Img = styled.img<ContainerProps>`
 export const MainContainer = styled.div<ContainerProps>`
   width: 100%;
   height: 15vh;
-  /* background-color: #0b0a09; */
   background-color: red;
   display: flex;
   justify-content: space-between;
@@ -245,12 +244,6 @@ export const ContainerIcons = styled.div<ContainerProps>`
   width: ${(props) => props.width};
 `;
 
-
-
-
-
-
-
 export const IconInfo = styled.img<ContainerProps>`
   width: 56px;
   /* margin-left: 20px; */
@@ -269,8 +262,6 @@ export const IconInfo = styled.img<ContainerProps>`
 
 export const IconGithub = styled.img<ContainerProps>`
   width: 60px;
-  /* margin-left: 20px; */
-  /* margin-right: 6rem; */
   cursor: pointer;
   transition: 0.2s;
 
@@ -297,17 +288,6 @@ export const IconCart = styled.img<ContainerProps>`
   }
 
 `;
-
-
-
-
-
-
-
-
-
-
-
 
 export const BannerHover = styled.div<ContainerProps>`
   width: 200px;

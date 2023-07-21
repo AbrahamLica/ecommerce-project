@@ -7,6 +7,8 @@ import minus from "../../imgs/minus.png";
 import plus from "../../imgs/plus.png";
 import { Context } from "../../Context/Context";
 import { useContext, useEffect, useState } from "react";
+import { match } from "assert";
+import styled from "styled-components";
 
 const Carrinho = () => {
   const { state, dispatch } = useContext(Context);
@@ -15,6 +17,7 @@ const Carrinho = () => {
   const [excludeAll, setExludeAll] = useState<boolean>(false);
   const [itemToExclude, setItemToExclude] = useState();
   const [teste, setTeste] = useState<number>(1);
+  const [sizeSmallandOpen, setSizeSmallandOpen] = useState();
 
   useEffect(() => {
     let valor = 0;
@@ -45,8 +48,6 @@ const Carrinho = () => {
     });
 
     alert("Obrigado pela preferência!");
-
-    console.log(state.shop);
   }
 
   function hideOpenCarrinho() {
@@ -154,13 +155,33 @@ const Carrinho = () => {
     setValorTotal(soma.toFixed(2));
   }
 
+  type ContainerProps = {
+    color?: string;
+    id?: any;
+    width?: string;
+    heigth?: string;
+    backgroundColor?: string;
+    displayFlex?: boolean;
+    flex?: string;
+    flexWrap?: boolean;
+    alignItems?: string;
+    margin?: string;
+    padding?: string;
+    column?: boolean;
+    border?: string;
+    borderRadius?: string;
+    cursorPointer?: boolean;
+    backgroundImage?: string;
+    backgroundPosition?: string;
+    backgroundSize?: string;
+    justifyContent?: string;
+    bold?: boolean;
+    fontSize?: string;
+    textAlign?: string;
+  };
+
   return (
-    <C.ContainerCart
-      style={{
-        width: state.shop.openCart ? "40vw" : "0vw",
-        padding: state.shop.openCart ? "20px" : "0px",
-      }}
-    >
+    <C.ContainerCart width={state.shop.openCart ? "cartopen" : ""}>
       {showModal && (
         <C.ContainerModal
           style={{
