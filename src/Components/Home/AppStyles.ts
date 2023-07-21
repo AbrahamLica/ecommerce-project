@@ -137,6 +137,11 @@ export const Title = styled.p<ContainerProps>`
   text-align: center;
   letter-spacing: 0.7rem;
   line-height: 3rem;
+
+  @media(max-width: 768px) {
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+  }
 `;
 
 

@@ -20,6 +20,10 @@ export type ContainerProps = {
   backgroundPosition?: string;
   backgroundSize?: string;
   justifyContent?: string;
+  top?: string;
+  left?: string;
+  right?: string;
+  bottom?: string;
 };
 
 export type InputProps = {
@@ -113,12 +117,21 @@ export const Link = styled.a<TextProps>`
   text-decoration: none;
 `;
 
+export const Img = styled.img<ContainerProps>`
+  width: ${(props) => props.width};
+  height: ${(props) => props.heigth};
+  margin: ${(props) => props.margin};
+  padding: ${(props) => props.padding};
+
+`;
+
 /////////////////////////// HEADER ///////////////////////
 
 export const MainContainer = styled.div<ContainerProps>`
   width: 100%;
   height: 15vh;
-  background-color: #0b0a09;
+  /* background-color: #0b0a09; */
+  background-color: red;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -126,9 +139,18 @@ export const MainContainer = styled.div<ContainerProps>`
 
 export const LogoText = styled.p<ContainerProps>`
   margin-left: 30px;
-  font-size: 30px;
+  font-size: 1.6rem;
   color: #e6af2e;
-  letter-spacing: 0.8rem;
+  letter-spacing: 0.6rem;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 1rem;
+  }
+
 `;
 
 export const MainContainerItems = styled.div<ContainerProps>`
@@ -149,13 +171,123 @@ export const Logo = styled.img<ContainerProps>`
   margin-left: 20px;
   width: 65px;
   height: 75px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
-export const ImgIcons = styled.img<ContainerProps>`
+export const ContainerHeader = styled.div<ContainerProps>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`;
+
+export const IconMenuHamburguer = styled.img<ContainerProps>`
+  display: none;
+  width: 40px;
+  padding-bottom: 15px;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+
+export const IconClose = styled.img<ContainerProps>`
   width: ${(props) => props.width};
+  cursor: pointer;
+  position: absolute;
+  top: ${(props) => props.top};
+  left: ${(props) => props.left};
+  right: ${(props) => props.right};
+  bottom: ${(props) => props.bottom};
+`;
+
+export const ContainerPerfil = styled.div<ContainerProps>`
+  width: 300px;
+  height: 300px;
+  background-color: white;
+  position: absolute;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+export const ContainerMenu = styled.div<ContainerProps>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 0%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  overflow-x: hidden;
+  background-color: black;
+  opacity: 1;
+  transition: all ease 0.5s;
+  z-index: 99;
+`;
+
+export const ContainerIcons = styled.div<ContainerProps>`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: green;
+  height: 100%;
+  width: ${(props) => props.width};
+`;
+
+
+
+
+
+
+
+export const IconInfo = styled.img<ContainerProps>`
+  width: 56px;
+  /* margin-left: 20px; */
+  /* margin-right: 10px; */
+  cursor: pointer;
+  transition: 0.2s;
+
+  :hover {
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const IconGithub = styled.img<ContainerProps>`
+  width: 60px;
+  /* margin-left: 20px; */
+  /* margin-right: 6rem; */
+  cursor: pointer;
+  transition: 0.2s;
+
+  :hover {
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const IconCart = styled.img<ContainerProps>`
+  width: 60px;
   height: ${(props) => props.heigth};
   margin-left: 20px;
-  margin-right: 10px;
+  margin-right: 15px;
   padding: ${(props) => props.padding};
   cursor: pointer;
   transition: 0.2s;
@@ -163,7 +295,19 @@ export const ImgIcons = styled.img<ContainerProps>`
   :hover {
     transform: scale(1.2);
   }
+
 `;
+
+
+
+
+
+
+
+
+
+
+
 
 export const BannerHover = styled.div<ContainerProps>`
   width: 200px;

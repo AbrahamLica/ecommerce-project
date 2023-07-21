@@ -15,6 +15,8 @@ const Home = () => {
       <C.MainContainer>
         <Header></Header>
 
+        
+
         <C.MainContainerItems>
           <C.Title>Os melhores itens Geek você encontra aqui!</C.Title>
 

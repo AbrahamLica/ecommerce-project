@@ -184,6 +184,11 @@ export const Modal = styled.div<ContainerProps>`
   width: 50%;
   height: 130px;
   background-color: white;
+
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
+
 `;
 
 export const ContainerButtons = styled.div<ContainerProps>`
