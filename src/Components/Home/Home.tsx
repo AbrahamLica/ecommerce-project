@@ -27,17 +27,20 @@ const Home = () => {
         </C.MainContainerItems>
 
         <C.Container padding="10px">
-          <C.Text fontSize="30px" color="black" bold>
+          <C.Text fontSize="1.2rem" color="black" bold>
             Developed by
             <C.Link
-              color="white"
+              color="black"
               href="https://github.com/AbrahamLica"
               target="_blank"
+              fontSize="1.2rem"
             >
               Abraham Melquisedeque Pereira Licá
             </C.Link>
           </C.Text>
         </C.Container>
+
+
       </C.MainContainer>
 
       <Carrinho></Carrinho>

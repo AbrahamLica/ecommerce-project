@@ -30,7 +30,7 @@ const ModalDetail = () => {
           <img src={close} width={35} alt="" />
         </C.Container>
 
-        <img src={require(`../../imgs/${state.shop.src}`)} alt="" />
+        <C.ImgDetails src={require(`../../imgs/${state.shop.src}`)} alt="" />
       </C.Modal>
     </C.ContainerModal>
   );

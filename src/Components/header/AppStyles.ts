@@ -122,7 +122,6 @@ export const Img = styled.img<ContainerProps>`
   height: ${(props) => props.heigth};
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
-
 `;
 
 /////////////////////////// HEADER ///////////////////////
@@ -130,10 +129,10 @@ export const Img = styled.img<ContainerProps>`
 export const MainContainer = styled.div<ContainerProps>`
   width: 100%;
   height: 15vh;
-  background-color: red;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #0b0a09;
 `;
 
 export const LogoText = styled.p<ContainerProps>`
@@ -150,6 +149,9 @@ export const LogoText = styled.p<ContainerProps>`
     font-size: 1rem;
   }
 
+  @media (max-width: 320px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const MainContainerItems = styled.div<ContainerProps>`
@@ -192,6 +194,14 @@ export const IconMenuHamburguer = styled.img<ContainerProps>`
 
   @media (max-width: 768px) {
     display: block;
+  }
+
+  @media (max-width: 425px) {
+    padding: 0;
+  }
+
+  @media (max-width: 320px) {
+    width: ;
   }
 `;
 
@@ -239,7 +249,6 @@ export const ContainerIcons = styled.div<ContainerProps>`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: green;
   height: 100%;
   width: ${(props) => props.width};
 `;
@@ -247,7 +256,7 @@ export const ContainerIcons = styled.div<ContainerProps>`
 export const IconInfo = styled.img<ContainerProps>`
   width: 56px;
   /* margin-left: 20px; */
-  /* margin-right: 10px; */
+  margin-right: 10px;
   cursor: pointer;
   transition: 0.2s;
 
@@ -287,6 +296,9 @@ export const IconCart = styled.img<ContainerProps>`
     transform: scale(1.2);
   }
 
+  @media (max-width: 325px) {
+    width: 40px;
+  }
 `;
 
 export const BannerHover = styled.div<ContainerProps>`

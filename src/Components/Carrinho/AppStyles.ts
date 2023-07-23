@@ -43,6 +43,7 @@ export type TextProps = {
 export type ContainerCart = {
   width?: string;
   heigth?: string;
+  padding?: string;
 };
 
 /////////////////////////// GENERAL ///////////////////////
@@ -81,6 +82,11 @@ export const Text = styled.p<TextProps>`
   padding: ${(props) => props.padding};
   cursor: ${(props) => (props.cursorPointer ? "pointer" : null)};
   z-index: ${(props) => (props.zIndex ? "1" : "")};
+  line-height: 15px;
+
+  @media (max-width: 1024px) {
+    font-size: 0.6rem;
+  }
 `;
 
 export const Link = styled.a<TextProps>`
@@ -100,11 +106,12 @@ export const ContainerCart = styled.div<ContainerCart>`
   flex-direction: column;
   align-items: center;
   transition: all ease 0.2s;
-  width: ${(props) => (props.width == 'cartopen' ? "40vw" : "0vw")};
+  width: ${(props) => (props.width == "cartopen" ? "40vw" : "0vw")};
+  padding: ${(props) => (props.padding == "cartopen" ? "20px" : "0")};
 
   @media (max-width: 425px) {
-    width: ${(props) => (props.width == 'cartopen' ? "100vw" : "0vw")};
-    height: ${(props) => (props.width == 'cartopen' ? "100vh" : "0vh")};
+    width: ${(props) => (props.width == "cartopen" ? "90%" : "0vw")};
+    height: ${(props) => (props.width == "cartopen" ? "100vh" : "0vh")};
     position: fixed;
     left: 0;
     bottom: 0;
@@ -141,15 +148,17 @@ export const ContainerModal = styled.div<ContainerProps>`
   width: 29%;
   height: 100%;
   position: fixed;
-  /* left: 0;
-  
-  bottom: 0;
-  right: 0; */
   top: 0;
   overflow-y: auto;
   background-color: rgba(0, 0, 0, 0.322);
   opacity: 1;
   transition: all ease 0.5s;
+  padding: ${(props) => (props.padding == "showModal" ? "12px" : "0")};
+
+  @media (max-width: 425px) {
+    width: ${(props) => (props.width == "showModal" ? "100%" : "0vw")};
+    padding: ${(props) => (props.padding == "showModal" ? "20px" : "0")};
+  }
 `;
 
 export const InformationsCartItem = styled.div<ContainerProps>`
@@ -188,6 +197,7 @@ export const ButtonFinish = styled.button<ContainerProps>`
   color: white;
   font-weight: bold;
   transition: 0.4s;
+  margin-top: 15px;
 
   :hover {
     box-shadow: 5px 5px 13px black;
@@ -205,9 +215,18 @@ export const Modal = styled.div<ContainerProps>`
   width: 50%;
   height: 130px;
   background-color: white;
+  padding: 10px;
 
   @media (max-width: 1024px) {
     width: 80%;
+  }
+
+  @media (max-width: 425px) {
+    width: 60%;
+  }
+
+  @media (max-width: 375px) {
+    padding: 10px;
   }
 `;
 
@@ -235,85 +254,3 @@ export const ContainerQt = styled.div<ContainerProps>`
   margin-top: 15px;
 `;
 
-// @media (max-width: 1024px) {
-//   .informationsItemCarrinho {
-//     flex-direction: column;
-//     align-items: center;
-//   }
-
-//   .nameItemCarrinho {
-//     font-size: 1.2rem;
-//     margin-bottom: 8px;
-//   }
-
-//   .imgItemCarrinho {
-//     margin-bottom: 10px;
-//   }
-
-//   .qtdItemCarrinho {
-//     margin-bottom: 8px;
-//   }
-
-//   .btnFinalizarAberto {
-//     width: 100%;
-//     font-size: 1.1rem;
-//   }
-// }
-
-// @media (max-width: 768px) {
-//   .total h2 {
-//     font-size: 1.3rem;
-//   }
-// }
-
-// @media (max-width: 425px) {
-//   .total h2 {
-//     font-size: 1.1rem;
-//   }
-
-//   .containerCarrinhoFechado {
-//     display: none;
-//   }
-
-//   .containerCarrinhoAberto {
-//     z-index: 10;
-//     width: 100vw;
-//     position: fixed;
-//     height: 100%;
-//     padding: 5px;
-//   }
-
-//   .informationsItemCarrinho {
-//     flex-direction: row;
-//     padding: 4px;
-//     margin: 5px;
-//   }
-
-//   .nameItemCarrinho {
-//     font-size: 0.7rem;
-//   }
-
-//   .itemCarrinhoAberto {
-//     border-bottom: 2px solid black;
-//     padding: 0px;
-//     margin: 0;
-//   }
-
-//   .qtdItemCarrinho {
-//     font-size: 0.7rem;
-//     margin: 2px;
-//   }
-
-//   .valorItemCarrinho {
-//     font-size: 0.7rem;
-//   }
-
-//   .imgItemCarrinho {
-//     height: auto;
-//     width: 50px;
-//   }
-
-//   .closeImg {
-//     width: 30px;
-//   }
-// }

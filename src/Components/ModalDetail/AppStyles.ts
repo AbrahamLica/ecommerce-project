@@ -128,6 +128,21 @@ export const Modal = styled.div<ContainerProps>`
   border-radius: 20px;
 `;
 
+export const ImgDetails = styled.img<ContainerProps>`
+  
+  @media (max-width: 425px) {
+    width: 350px;
+  }
+
+  @media (max-width: 375px) {
+    width: 300px;
+  }
+
+  @media (max-width: 320px) {
+    width: 270px;
+  }
+`;
+
 
 
 // #B3001B

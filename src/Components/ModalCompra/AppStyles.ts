@@ -145,16 +145,29 @@ export const Modal = styled.div<ContainerProps>`
   justify-content: center;
   flex-direction: column;
   padding: 30px;
-  /* height: 400px; */
   background-color: white;
   min-width: 35vw;
   z-index: 10;
   border-radius: 20px;
+
+  @media (max-width: 425px) {
+    width: 330px;
+    padding: 10px;
+  }
+
+  @media (max-width: 320px) {
+    width: 290px;
+    /* padding: 10px; */
+  }
 `;
 
 export const IconClose = styled.img<ContainerProps>`
   width: 60px;
   cursor: pointer;
+
+  @media (max-width: 425px) {
+    width: 40px;
+  }
 `;
 
 export const ContainerClose = styled.div<ContainerProps>`
@@ -173,12 +186,20 @@ export const Name = styled.p<ContainerProps>`
   font-size: 1.5rem;
   margin-top: 15px;
   text-align: center;
+
+  @media (max-width: 425px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const Value = styled.p<ContainerProps>`
   font-size: 1rem;
   margin-top: 10px;
   margin-bottom: 10px;
+
+  @media (max-width: 425px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const ContainerQt = styled.div<ContainerProps>`
@@ -210,6 +231,11 @@ export const Button = styled.div<ContainerProps>`
   :hover {
     box-shadow: 5px 5px 13px black;
   }
+
+  @media (max-width: 425px) {
+    font-size: 0.7rem;
+    margin-top: 9px;
+  }
 `;
 
 export const ContainerButtons = styled.div<ContainerProps>`
@@ -217,6 +243,10 @@ export const ContainerButtons = styled.div<ContainerProps>`
   align-items: center;
   justify-content: center;
   margin-top: 30px;
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+  }
 `;
 
 // @media (max-width: 768px) {

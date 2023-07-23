@@ -2,7 +2,7 @@ import * as C from "./AppStyles";
 import close from "../../imgs/close.png";
 import bin from "../../imgs/bin2.png";
 import confirm from "../../imgs/confirm.png";
-import cancel from "../../imgs/cancel.png";
+import cancell from "../../imgs/cancel.png";
 import minus from "../../imgs/minus.png";
 import plus from "../../imgs/plus.png";
 import { Context } from "../../Context/Context";
@@ -46,6 +46,8 @@ const Carrinho = () => {
     dispatch({
       type: "RESET_CARRINHO",
     });
+
+    setExludeAll(false);
 
     alert("Obrigado pela preferência!");
   }
@@ -103,6 +105,7 @@ const Carrinho = () => {
     }
 
     setShowModal(false);
+    setExludeAll(false);
   }
 
   function excludeAllItems() {
@@ -155,39 +158,20 @@ const Carrinho = () => {
     setValorTotal(soma.toFixed(2));
   }
 
-  type ContainerProps = {
-    color?: string;
-    id?: any;
-    width?: string;
-    heigth?: string;
-    backgroundColor?: string;
-    displayFlex?: boolean;
-    flex?: string;
-    flexWrap?: boolean;
-    alignItems?: string;
-    margin?: string;
-    padding?: string;
-    column?: boolean;
-    border?: string;
-    borderRadius?: string;
-    cursorPointer?: boolean;
-    backgroundImage?: string;
-    backgroundPosition?: string;
-    backgroundSize?: string;
-    justifyContent?: string;
-    bold?: boolean;
-    fontSize?: string;
-    textAlign?: string;
-  };
+  function cancel() {
+    setShowModal(false);
+    setExludeAll(false);
+  }
 
   return (
-    <C.ContainerCart width={state.shop.openCart ? "cartopen" : ""}>
+    <C.ContainerCart
+      width={state.shop.openCart ? "cartopen" : ""}
+      padding={state.shop.openCart ? "cartopen" : ""}
+    >
       {showModal && (
         <C.ContainerModal
-          style={{
-            width: showModal ? "29%" : "0px",
-            padding: showModal ? "12px" : "0px",
-          }}
+          width={showModal ? "showModal" : ""}
+          padding={showModal ? "showModal" : ""}
         >
           <C.Modal>
             <C.Text textAlign="center" fontSize="0.8rem">
@@ -200,8 +184,8 @@ const Carrinho = () => {
                 <img src={confirm} alt="" width={35} />
               </C.Container>
 
-              <C.Container cursorPointer onClick={() => setShowModal(false)}>
-                <img src={cancel} alt="" width={40} />
+              <C.Container cursorPointer onClick={cancel}>
+                <img src={cancell} alt="" width={40} />
               </C.Container>
             </C.ContainerButtons>
           </C.Modal>

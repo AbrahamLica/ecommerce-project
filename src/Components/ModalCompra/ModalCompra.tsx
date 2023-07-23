@@ -55,6 +55,8 @@ const ModalCompra = () => {
         openCart: true,
       },
     });
+
+    window.scrollTo(0, 0)
   }
 
   function fechaModal() {

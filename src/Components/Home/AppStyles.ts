@@ -110,7 +110,8 @@ export const Link = styled.a<TextProps>`
   font-size: ${(props) => props.fontSize};
   text-align: ${(props) => props.textAlign};
   cursor: pointer;
-  text-decoration: none;
+  /* text-decoration: none; */
+  margin-left: 10px;
 `;
 
 /////////////////////////// HOME ///////////////////////
@@ -128,6 +129,10 @@ export const MainContainerItems = styled.div<ContainerProps>`
   background-color: white;
   width: 80%;
   background-color: #E0E2DB;
+
+  @media (max-width: 375px) {
+    width: 90%;
+  }
 `;
 
 export const Title = styled.p<ContainerProps>`
@@ -141,6 +146,10 @@ export const Title = styled.p<ContainerProps>`
   @media(max-width: 768px) {
     font-size: 1rem;
     letter-spacing: 0.2rem;
+  }
+
+  @media(max-width: 425px) {
+    display: none;
   }
 `;
 

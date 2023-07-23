@@ -131,6 +131,11 @@ export const ItemImg = styled.img<ContainerProps>`
   :hover {
     transform: translate(10px, -10px);
   }
+
+  @media (max-width: 320px) {
+    width: 250px;
+    height: 250px;
+  }
 `;
 
 export const ContainerItem = styled.div<ContainerProps>`
@@ -175,6 +180,10 @@ export const ContainerButtons = styled.div<ContainerProps>`
   width: 100%;
   border-bottom: 3px solid black;
   margin-top: 1.5rem;
+
+  @media (max-width: 320px) {
+    width: 90%;
+  }
 `;
 
 export const ContainerDetails = styled.div<ContainerProps>`
