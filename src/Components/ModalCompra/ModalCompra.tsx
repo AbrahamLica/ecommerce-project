@@ -5,6 +5,7 @@ import close from "../../imgs/close.png";
 import cartBig from "../../imgs/cartBig.png";
 import minus from "../../imgs/minus.png";
 import plus from "../../imgs/plus.png";
+import { addSyntheticLeadingComment } from "typescript";
 
 const ModalCompra = () => {
   const { state, dispatch } = useContext(Context);
@@ -45,9 +46,8 @@ const ModalCompra = () => {
     dispatch({
       type: "CLOSE_MODAL",
       payload: {
-        modalOpen: false,
-      },
-    });
+        modalOpen: false, 
+    }});
 
     dispatch({
       type: "OPEN_CART",

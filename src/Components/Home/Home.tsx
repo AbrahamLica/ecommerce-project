@@ -35,7 +35,7 @@ const Home = () => {
               target="_blank"
               fontSize="1.2rem"
             >
-              Abraham Melquisedeque Pereira Licá
+              Abraham Melquisedeque Pereira Licá 
             </C.Link>
           </C.Text>
         </C.Container>
