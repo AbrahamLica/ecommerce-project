@@ -100,29 +100,36 @@ export const Link = styled.a<TextProps>`
 
 /////////////////////////// ITEMS ///////////////////////
 
-export const ContainerCart = styled.div<ContainerCart>`
+export const MainContainerCart = styled.div<ContainerCart>`
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: all ease 0.2s;
   width: ${(props) => (props.width == "cartopen" ? "40vw" : "0vw")};
-  padding: ${(props) => (props.padding == "cartopen" ? "20px" : "0")};
+  
 
   @media (max-width: 425px) {
-    width: ${(props) => (props.width == "cartopen" ? "90%" : "0vw")};
-    height: ${(props) => (props.width == "cartopen" ? "100vh" : "0vh")};
+    width: ${(props) => (props.width == "cartopen" ? "100%" : "0vw")};
+    height: ${(props) => (props.width == "cartopen" ? "auto" : "0vh")};
     position: fixed;
     left: 0;
     bottom: 0;
     right: 0;
     top: 0;
     overflow-x: hidden;
-    background-color: white;
     opacity: 1;
     transition: all ease 0.5s;
     z-index: 99;
   }
+`;
+
+export const ContainerCart = styled.div<ContainerCart>`
+padding: ${(props) => (props.padding == "cartopen" ? "20px" : "0")};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: ${(props) => (props.width == "cartopen" ? "90%" : "0vw")};
 `;
 
 export const ContainerImgClose = styled.div<ContainerProps>`
@@ -149,7 +156,7 @@ export const ContainerModal = styled.div<ContainerProps>`
   height: 100%;
   position: fixed;
   top: 0;
-  overflow-y: auto;
+  overflow-y: hidden;
   background-color: rgba(0, 0, 0, 0.322);
   opacity: 1;
   transition: all ease 0.5s;
@@ -235,6 +242,7 @@ export const ContainerButtons = styled.div<ContainerProps>`
   align-items: center;
   justify-content: space-around;
   width: 100%;
+  background-color: white;
 `;
 
 ////////////////////////////// BUTTONS ///////////////////////////
@@ -253,4 +261,3 @@ export const ContainerQt = styled.div<ContainerProps>`
   justify-content: center;
   margin-top: 15px;
 `;
-
