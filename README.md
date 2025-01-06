@@ -1,15 +1,12 @@
 
 # Nerd Shop 🤓
 
-Uma página ecommerce com as seguintes funcionalidades:
-
-- Adicionar item ao carrinho
-- Remover item
-- Aumentar e diminuir quantidade
+Uma página ecommerce simples, com alguns produtos estáticos.
 
 # Tecnologias usadas
 
-- Javascript 
+- Javascript
+- Typescript
 - React
 - Styled Components (estilização)
 
